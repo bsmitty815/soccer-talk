@@ -1,6 +1,7 @@
 
 
-function Header() {
+function EditProfile() {
+
 
     return (
         <div>
@@ -9,4 +10,4 @@ function Header() {
     )
 }
 
-export default Header
+export default EditProfile
