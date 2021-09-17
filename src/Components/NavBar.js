@@ -5,7 +5,7 @@ function NavBar() {
 
     return (
         <div>
-
+            <h1>navbar container</h1>
         </div>
     )
 }

@@ -9,10 +9,14 @@ function HomePageContainer() {
 
 
     return (
-        <div>
+        <div class="home-page-container">
+            <div class="home-page-left-container">
             <Route>
                 <AllDiscussionsContainer />
             </Route>
+            </div>
+
+            <div class="home-page-right-container">
             <Route>
                 <LoginSignupContainer />
             </Route>
@@ -21,7 +25,10 @@ function HomePageContainer() {
             </Route>
             <Route>
                 <NavBar />
-            </Route>      
+            </Route>
+            </div>
+
+             
         </div>
     )
 }
