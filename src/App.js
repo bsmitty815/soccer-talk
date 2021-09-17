@@ -1,5 +1,6 @@
 
 import './App.css';
+import { useState } from 'react'
 import { Switch, Route } from 'react-router-dom'
 import Header from './Components/Header'
 import AllDiscussionsContainer from './Components/Discussions/AllDiscussionsContainer'
@@ -8,7 +9,7 @@ import ProfileContainer from './Components/Profile/ProfileContainer'
 import NavBar from './Components/NavBar'
 
 function App() {
-
+  const [user, setUser] = useState(null)
 
   //navbar
   //discussions container
