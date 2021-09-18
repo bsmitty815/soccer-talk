@@ -28,7 +28,7 @@ function App() {
       <Switch>
 
         <Route to="/">
-          <HomePageContainer />
+          <HomePageContainer setUser={setUser} />
         </Route>
       </Switch>
     </div>

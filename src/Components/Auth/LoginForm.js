@@ -8,12 +8,12 @@ function LoginForm() {
             <h1>Login</h1>
             <form className="ui form">
             <div className="field">
-                <label>First Name</label>
-                <input type="text" name="first-name" placeholder="First Name" />
+                <label>Username</label>
+                <input type="text" name="username" placeholder="Username" />
             </div>
             <div className="field">
-                <label>Last Name</label>
-                <input type="text" name="last-name" placeholder="Last Name" />
+                <label>Password</label>
+                <input type="text" name="password" placeholder="Password" />
             </div>
             <button className="ui button" type="submit">Submit</button>
             </form>

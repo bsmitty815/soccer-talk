@@ -5,7 +5,7 @@ import LoginSignupContainer from './Auth/LoginSignupContainer'
 import ProfileContainer from './Profile/ProfileContainer'
 import NavBar from './NavBar'
 
-function HomePageContainer() {
+function HomePageContainer({setUser}) {
 
 
     return (
@@ -24,7 +24,7 @@ function HomePageContainer() {
                 <ProfileContainer />
             </Route>
             <Route>
-                <NavBar />
+                <NavBar setUser={setUser} />
             </Route>
             </div>
 
