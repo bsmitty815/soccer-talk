@@ -11,6 +11,7 @@ import 'semantic-ui-css/semantic.min.css'
 
 function App() {
   const [user, setUser] = useState(null)
+  console.log(user)
 
   useEffect(() => {
     fetch('/me').then((r) => {

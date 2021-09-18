@@ -1,12 +1,14 @@
 
 import { useState } from 'react'
 
-function LoginForm() {
+function LoginForm({setUser}) {
     const [username, setUsername] = useState("")
     const [password, setPassword] = useState("")
     const [errors, setErrors] = useState([])
 
-    function handleSubmit() {
+    //handle login
+    function handleSubmit(e) {
+        e.preventDefault()
         fetch("/login", {
             method: "POST",
             headers: {
@@ -16,11 +18,11 @@ function LoginForm() {
             body: JSON.stringify({username, password}),
         }).then((r) => {
             if (r.ok) {
-                r.json().then((user) => setUsername(user))
+                r.json().then((user) => setUser(user))
                 setUsername("")
                 setPassword("")
             } else {
-                r.json().then((err) => setErrors(err.error))
+                r.json().then((err) => console.log(err.error))
             }
         })
     }
@@ -31,12 +33,13 @@ function LoginForm() {
             <form className="ui form" onSubmit={handleSubmit}>
             <div className="field">
                 <label>Username</label>
-                <input type="text" name="username" placeholder="Username" value={username} onChange={(e) => setUsername(e.target.value)} />
+                <input type="text" name="username" placeholder="Username" id="username" value={username} onChange={(e) => setUsername(e.target.value)} />
             </div>
             <div className="field">
                 <label>Password</label>
-                <input type="text" name="password" placeholder="Password" value={password} onchange={(e) => setPassword(e.target.value)} />
+                <input type="password" name="password" placeholder="Password" id="password" autoComplete="on" value={password} onChange={(e) => setPassword(e.target.value)} />
             </div>
+            <p key ={errors}>{errors}</p>
             <button className="ui button" type="submit">Submit</button>
             </form>
         </div>

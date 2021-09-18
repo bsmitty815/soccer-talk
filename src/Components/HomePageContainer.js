@@ -18,7 +18,7 @@ function HomePageContainer({setUser}) {
 
             <div className="home-page-right-container">
             <Route>
-                <LoginSignupContainer />
+                <LoginSignupContainer setUser={setUser} />
             </Route>
             <Route>
                 <ProfileContainer />
