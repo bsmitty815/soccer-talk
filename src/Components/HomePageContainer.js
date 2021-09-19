@@ -5,7 +5,7 @@ import LoginSignupContainer from './Auth/LoginSignupContainer'
 import ProfileContainer from './Profile/ProfileContainer'
 import NavBar from './NavBar'
 
-function HomePageContainer({setUser}) {
+function HomePageContainer({setUser, user}) {
 
 
     return (
@@ -32,13 +32,13 @@ function HomePageContainer({setUser}) {
 
             <div className="home-page-right-container">
             <Route>
-                <LoginSignupContainer setUser={setUser} />
+                {(user) ? null : <LoginSignupContainer setUser={setUser} /> }
             </Route>
             <Route>
-                <ProfileContainer />
+                {(user) ? <ProfileContainer /> : null }
             </Route>
             <Route>
-                <NavBar setUser={setUser} />
+                {(user) ? <NavBar setUser={setUser} /> : null }
             </Route>
             </div>
 
