@@ -1,37 +1,34 @@
 
+import { useState } from 'react'
 
 function EditProfile() {
+    const [selectTeam, setSelectTeam] = useState("")
 
+    const soccerTeams = ['Arsenal', 'Aston Villa', 'Brentford', 'Brighton and Hove Albion', 'Burnley',
+    'Chelsea', 'Crystal Palace', 'Everton', 'Leeds United', 'Leicester City', 'Liverpool', 'Manchester City', 'Manchester United',
+    'Newcastle United', 'Norwich City', 'Southampton', 'Tottenham Hotspur', 'Watford', 'West Ham United', 'Wolverhampton Wanderers']
+
+
+    const soccerTeamSelect = soccerTeams.map((team) => {
+        return <select key={team} value={team} onChange={(e) => setSelectTeam(e.target.value)}>{team}</select>
+    })
 
     return (
         <div>
             <div class="ui form">
             <div class="field">
-                <label>Text</label>
+                <label>Team</label>
                 <textarea></textarea>
             </div>
             <div class="field">
-                <label>Short Text</label>
-                <textarea rows="2"></textarea>
-            </div>
-            <div class="field">
-                <label>Card Type</label>
+                <label>Team</label>
                 <div class="ui selection dropdown">
-                <input type="hidden" name="card[type]" />
-                <div class="default text">Type</div>
+                <input type="hidden" />
+                <div class="default text">Select Team</div>
                 <i class="dropdown icon"></i>
                 <div class="menu">
-                    <div class="item" data-value="visa">
-                    <i class="visa icon"></i>
-                    Visa
-                    </div>
-                    <div class="item" data-value="amex">
-                    <i class="amex icon"></i>
-                    American Express
-                    </div>
-                    <div class="item" data-value="discover">
-                    <i class="discover icon"></i>
-                    Discover
+                    <div class="item">
+                        {soccerTeamSelect}
                     </div>
                 </div>
                 </div>
