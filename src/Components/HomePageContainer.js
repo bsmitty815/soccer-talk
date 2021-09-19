@@ -16,7 +16,7 @@ function HomePageContainer({setUser, user}) {
                     <AllDiscussionsContainer />
                 </Route>
                 <Route to="/EditProfile">
-                    <EditProfile />
+                    <EditProfile setUser={setUser} />
                 </Route>
                 <Route to="/EditPasssword">
                     <EditPassword />
