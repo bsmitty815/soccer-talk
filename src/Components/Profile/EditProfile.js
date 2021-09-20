@@ -5,8 +5,10 @@ import { useHistory } from 'react-router-dom'
 function EditProfile({setUser, user}) {
     const [bio, setBio] = useState(user.profile.bio)
     const [selectTeam, setSelectTeam] = useState(user.profile.team)
+    const [errors, setErrors] = useState("errors:")
+    const [updatedMessage, setUpdatedMessage] = useState("")
     const history = useHistory()
-    //console.log(bio, "bio", user.profile.bio)
+
 
     const soccerTeams = ['Select Team', 'Arsenal', 'Aston Villa', 'Brentford', 'Brighton and Hove Albion', 'Burnley',
     'Chelsea', 'Crystal Palace', 'Everton', 'Leeds United', 'Leicester City', 'Liverpool', 'Manchester City', 'Manchester United',
@@ -19,11 +21,12 @@ function EditProfile({setUser, user}) {
     const soccerTeamSelect = soccerTeams.map((team) => {
        return <option key={team} value={team} >{team}</option>
     })
-    //onChange={(e) => setSelectTeam(e.target.value)}
     
 
     //handle edit profile
     function handleSubmit(e) {
+        setErrors("")
+        setUpdatedMessage("")
         e.preventDefault()
         fetch('/profiles/:id', {
             method: "PATCH",
@@ -37,9 +40,10 @@ function EditProfile({setUser, user}) {
             }),
         }).then((r) => {
             if (r.ok) {
-                r.json().then((data) => console.log(data))
+                r.json().then((user) => setUser(user))
+                setUpdatedMessage("Profile Updated")
             } else {
-                r.json().then((data) => console.log(data))
+                r.json().then((data) => setErrors(data.exception))
             }
         })
 
@@ -55,6 +59,10 @@ function EditProfile({setUser, user}) {
         history.push('/')
     }
 
+    //handle errors string
+    const errorsString = errors.split(":").slice(-1)
+    const errorsDisplay = errorsString[0].replace(">", "")
+
     return (
         <div>
             <form className="ui form" onSubmit={handleSubmit}>
@@ -62,7 +70,7 @@ function EditProfile({setUser, user}) {
                 <div className="field">
                     <label>bio</label>
                     <textarea placeholder={bio} value={bio} onChange={(e) => setBio(e.target.value)}></textarea>
-                    <p>Maximum characters 500</p>
+                    <p>Maximum characters 200</p>
                 </div>
                 <div className="fields">
                     <div >
@@ -79,6 +87,8 @@ function EditProfile({setUser, user}) {
                     </div>
                 </div>
             </div>
+            <p>{errorsDisplay}</p>
+            <p>{updatedMessage}</p>
             <button className="ui button" type="submit">Submit</button>
             </form>
             
