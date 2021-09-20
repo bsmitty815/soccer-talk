@@ -11,7 +11,7 @@ function EditProfile({setUser}) {
 
 
     const soccerTeamSelect = soccerTeams.map((team) => {
-        return <select key={team} value={team} onChange={(e) => setSelectTeam(e.target.value)}>{team}</select>
+        return <div className="item" key={team} value={team} onChange={(e) => setSelectTeam(e.target.value)}>{team}</div>
     })
 
     //handle edit profile
@@ -41,28 +41,28 @@ function EditProfile({setUser}) {
             method: "DELETE",
         })
         .then((r) => console.log(r))
-        setUesr(null)
+        setUser(null)
     }
 
     return (
         <div>
-            <form class="ui form" onSubmit={handleSubmit}>
-            <div class="ui form">
-            <div class="field">
+            <form className="ui form" onSubmit={handleSubmit}>
+            <div className="ui form">
+            <div className="field">
                 <label>bio</label>
                 <textarea placeholder={bio} value={bio} onChange={(e) => setBio(e.target.value)}></textarea>
                 <p>Maximum characters 500</p>
             </div>
-            <div class="field">
+            <div className="field">
                 <label>Team</label>
-                <div class="ui selection dropdown">
+                <div className="ui selection dropdown">
                 <input type="hidden" />
-                <div class="default text">Select Team</div>
-                <i class="dropdown icon"></i>
-                <div class="menu">
-                    <div class="item">
+                <div className="default text">Select Team</div>
+                <i clasNames="dropdown icon"></i>
+                <div className="menu">
+                    
                         {soccerTeamSelect}
-                    </div>
+                    
                 </div>
                 </div>
             </div>

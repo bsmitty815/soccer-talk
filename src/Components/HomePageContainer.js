@@ -4,6 +4,9 @@ import AllDiscussionsContainer from './Discussions/AllDiscussionsContainer'
 import LoginSignupContainer from './Auth/LoginSignupContainer'
 import ProfileContainer from './Profile/ProfileContainer'
 import NavBar from './NavBar'
+import EditProfile from './Profile/EditProfile'
+import EditPassword from './Profile/EditPassword'
+import CreateDiscussion from './Discussions/CreateDiscussion'
 
 function HomePageContainer({setUser, user}) {
 

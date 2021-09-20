@@ -20,7 +20,6 @@ function EditPassword() {
                         oldPassword,
                     },
                     user: {
-                        username,
                         password,
                         password_confirmation: passwordConfirmation
                 }
