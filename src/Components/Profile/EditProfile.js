@@ -2,11 +2,11 @@
 import { useState } from 'react'
 import { useHistory } from 'react-router-dom'
 
-function EditProfile({setUser}) {
-    const [bio, setBio] = useState("")
-    const [selectTeam, setSelectTeam] = useState("")
+function EditProfile({setUser, user}) {
+    const [bio, setBio] = useState(user.profile.bio)
+    const [selectTeam, setSelectTeam] = useState(user.profile.team)
     const history = useHistory()
-    console.log(selectTeam)
+    //console.log(bio, "bio", user.profile.bio)
 
     const soccerTeams = ['Select Team', 'Arsenal', 'Aston Villa', 'Brentford', 'Brighton and Hove Albion', 'Burnley',
     'Chelsea', 'Crystal Palace', 'Everton', 'Leeds United', 'Leicester City', 'Liverpool', 'Manchester City', 'Manchester United',
