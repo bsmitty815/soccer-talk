@@ -5,6 +5,7 @@ function SignupForm({setUser}) {
     const [username, setUsername] = useState("")
     const [password, setPassword] = useState("")
     const [passwordConfirmation, setPasswordConfirmation] = useState("")
+    const [errors, setErrors] = useState("errors:")
 
 
     //handle signup
@@ -26,11 +27,15 @@ function SignupForm({setUser}) {
             if (r.ok) {
                 r.json().then((user) => setUser(user))
             } else {
-                r.json().then((err) => console.log(err))
+                r.json().then((err) => setErrors(err.exception))
             }
         })
 
     }
+
+    //handle errors string
+    const errorsString = errors.split(":").slice(-1)
+    const errorsDisplay = errorsString[0].replace(">", "")
 
 
     
@@ -50,6 +55,7 @@ function SignupForm({setUser}) {
                 <label>Confirm Password</label>
                 <input type="password" name="confirm-password" id="password_confirmation" placeholder="Confirm Password" autoComplete="on" value={passwordConfirmation} onChange={(e) => setPasswordConfirmation(e.target.value)}/>
             </div>
+            <p>{errorsDisplay}</p>
             <button className="ui button" type="submit">Submit</button>
             </form>
         </div>

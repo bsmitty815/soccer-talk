@@ -22,7 +22,7 @@ function LoginForm({setUser}) {
                 setUsername("")
                 setPassword("")
             } else {
-                r.json().then((err) => console.log(err.error))
+                r.json().then((err) => setErrors(err.error))
             }
         })
     }

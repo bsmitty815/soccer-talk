@@ -1,14 +1,18 @@
 
 import { useState } from 'react'
 
-function EditPassword() {
+function EditPassword({setUser}) {
     const [oldPassword, setOldPassword] = useState("")
     const [password, setPassword] = useState("")
     const [passwordConfirmation, setPasswordConfirmation] = useState("")
+    const [messages, setMessages] = useState("")
+    console.log(password)
+    console.log(passwordConfirmation)
 
         //handle edit password
         function handleSubmit(e) {
             e.preventDefault()
+            setMessages("")
             fetch('/users/:id', {
                 method: "PATCH",
                 headers: {
@@ -25,7 +29,12 @@ function EditPassword() {
                 }
                 }),
             }).then((r) => {
-    
+                if (r.ok) {
+                    r.json().then((user) => setUser(user))
+                    setMessages("Password Updated")
+                } else {
+                    r.json().then((data) => setMessages(data.message))
+                }
             })
     
         }
@@ -46,6 +55,7 @@ function EditPassword() {
                 <label>Confirm Password</label>
                 <input type="password" name="new-password" id="new-password_confirmation" placeholder="Confirm Password" autoComplete="on" value={passwordConfirmation} onChange={(e) => setPasswordConfirmation(e.target.value)}/>
             </div>
+            <p>{messages}</p>
             <button className="ui button" type="submit">Submit</button>
             </form>
         </div>

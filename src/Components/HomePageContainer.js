@@ -22,7 +22,7 @@ function HomePageContainer({setUser, user}) {
                     {(user) ? <EditProfile setUser={setUser} user={user}/> : null }
                 </Route>
                 <Route exact path="/EditPassword">
-                    <EditPassword />
+                    <EditPassword setUser={setUser}/>
                 </Route>
                 <Route exact path="/CreateDiscussion">
                     <CreateDiscussion />

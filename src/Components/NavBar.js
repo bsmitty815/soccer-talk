@@ -1,9 +1,9 @@
 
-import { Link } from 'react-router-dom'
+import { Link, useHistory } from 'react-router-dom'
 
 function NavBar({setUser}) {
     //logout/editprofile/editpassword/create discussion
-
+    const history = useHistory()
     //logout
     function handleLogout() {
         
@@ -12,6 +12,7 @@ function NavBar({setUser}) {
         }).then((r) => {
             if (r.ok) {
                 setUser(null)
+                history.push('/')
             }
         })
     }

@@ -25,7 +25,7 @@ function EditProfile({setUser, user}) {
 
     //handle edit profile
     function handleSubmit(e) {
-        setErrors("")
+        setErrors("errors:")
         setUpdatedMessage("")
         e.preventDefault()
         fetch('/profiles/:id', {
