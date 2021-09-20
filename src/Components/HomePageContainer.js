@@ -15,19 +15,19 @@ function HomePageContainer({setUser, user}) {
         <div className="home-page-container">
             <div className="home-page-left-container">
             <Switch>
-                <Route to="/Home">
+                <Route exact path="/Home">
                     <AllDiscussionsContainer />
                 </Route>
-                <Route to="/EditProfile">
+                <Route exact path="/EditProfile">
                     <EditProfile setUser={setUser} />
                 </Route>
-                <Route to="/EditPasssword">
+                <Route exact path="/EditPassword">
                     <EditPassword />
                 </Route>
-                <Route to="/CreateDiscussion">
-                    <CreateDiscussion/>
+                <Route exact path="/CreateDiscussion">
+                    <CreateDiscussion />
                 </Route>
-                <Route to="/">
+                <Route path="/">
                     <AllDiscussionsContainer />
                 </Route>
             </Switch>

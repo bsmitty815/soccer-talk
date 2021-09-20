@@ -19,19 +19,29 @@ function NavBar({setUser}) {
     return (
         <div>
             <h1>navbar container</h1>
+            <p>
             <Link to='/Home'>
                 <button>Home</button>
             </Link>
+            </p>
+            <p>
             <Link to='/EditProfile'>
                 <button>Edit Profile</button>
             </Link>
+            </p>
+            <p>
             <Link to='/EditPassword'>
                 <button>Edit Password</button>
             </Link>
+            </p>
+            <p>
             <Link to='/CreateDiscussion'>
                 <button>Create Discussion</button>
             </Link>
+            </p>
+            <p>
             <button onClick={handleLogout} >Logout</button>
+            </p>
         </div>
     )
 }

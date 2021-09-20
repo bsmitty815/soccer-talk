@@ -23,7 +23,11 @@ function SignupForm({setUser}) {
             }
             }),
         }).then((r) => {
-
+            if (r.ok) {
+                r.json().then((user) => setUser(user))
+            } else {
+                r.json().then((err) => console.log(err))
+            }
         })
 
     }
