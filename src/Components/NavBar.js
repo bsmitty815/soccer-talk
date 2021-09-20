@@ -21,26 +21,26 @@ function NavBar({setUser}) {
             <h1>navbar container</h1>
             <p>
             <Link to='/Home'>
-                <button>Home</button>
+                <button className="ui button" >Home</button>
             </Link>
             </p>
             <p>
             <Link to='/EditProfile'>
-                <button>Edit Profile</button>
+                <button className="ui button" >Edit Profile</button>
             </Link>
             </p>
             <p>
             <Link to='/EditPassword'>
-                <button>Edit Password</button>
+                <button className="ui button" >Edit Password</button>
             </Link>
             </p>
             <p>
             <Link to='/CreateDiscussion'>
-                <button>Create Discussion</button>
+                <button className="ui button" >Create Discussion</button>
             </Link>
             </p>
             <p>
-            <button onClick={handleLogout} >Logout</button>
+            <button onClick={handleLogout} className="ui button"  >Logout</button>
             </p>
         </div>
     )
