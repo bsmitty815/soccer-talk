@@ -1,12 +1,15 @@
 
 import { useHistory } from 'react-router-dom'
 import { useState } from 'react'
+import { useDispatch } from 'react-redux'
+import { addDiscussion } from '../Redux/Actions/addDiscussionAction'
 
 function CreateDiscussion() {
 
     const history = useHistory()
     const [title, setTitle] = useState("")
     const [body, setBody] = useState("")
+    const dispatch = useDispatch()
 
 
     function handleSubmit(e) {
@@ -24,7 +27,7 @@ function CreateDiscussion() {
             })
         }).then((r) => {
             if (r.ok) {
-                r.json().then((discussion) => console.log(discussion, "returned discussion"))
+                r.json().then((discussion) => dispatch(addDiscussion(discussion)))
                 //history.push('/')
             } else {
                 r.json().then((err) => console.log(err))
