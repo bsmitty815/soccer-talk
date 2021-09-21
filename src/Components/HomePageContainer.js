@@ -7,6 +7,7 @@ import NavBar from './NavBar'
 import EditProfile from './Profile/EditProfile'
 import EditPassword from './Profile/EditPassword'
 import CreateDiscussion from './Discussions/CreateDiscussion'
+import IndividualDiscussion from './Discussions/IndividualDiscussion'
 
 function HomePageContainer({setUser, user}) {
 
@@ -26,6 +27,9 @@ function HomePageContainer({setUser, user}) {
                 </Route>
                 <Route exact path="/CreateDiscussion">
                     <CreateDiscussion />
+                </Route>
+                <Route exact path="/discussion/:id">
+                    <IndividualDiscussion />
                 </Route>
                 <Route path="/">
                     <AllDiscussionsContainer />

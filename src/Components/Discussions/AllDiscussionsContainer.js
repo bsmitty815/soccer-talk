@@ -2,6 +2,7 @@
 import { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { setDiscussions } from '../Redux/Actions/discussionActions'
+import { Link } from 'react-router-dom'
 
 
 function AllDiscussionsContainer() {
@@ -16,8 +17,9 @@ function AllDiscussionsContainer() {
     }, [])
 
 
+
     const discussionDisplay = discussions.map((discussion) => {
-        return <div key={discussion.id} id={discussion.id}><h1>{discussion.title}</h1><p>{discussion.summary}</p></div>
+        return <div key={discussion.id} id={discussion.id} ><h1><Link to={`/discussion/${discussion.id}`}>{discussion.title}</Link></h1><p>{discussion.summary}</p></div>
     })
 
     console.log(discussionDisplay)
