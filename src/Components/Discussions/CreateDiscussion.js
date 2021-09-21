@@ -25,6 +25,7 @@ function CreateDiscussion() {
         }).then((r) => {
             if (r.ok) {
                 r.json().then((discussion) => console.log(discussion, "returned discussion"))
+                //history.push('/')
             } else {
                 r.json().then((err) => console.log(err))
             }
