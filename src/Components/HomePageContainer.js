@@ -34,15 +34,19 @@ function HomePageContainer({setUser, user}) {
             </div>
 
             <div className="home-page-right-container">
+ 
+
             <Route>
                 {(user) ? null : <LoginSignupContainer setUser={setUser} /> }
             </Route>
             <Route>
-                {(user) ? <ProfileContainer /> : null }
+                {(user) ? <ProfileContainer user={user}/> : null }
             </Route>
+
             <Route>
                 {(user) ? <NavBar setUser={setUser} /> : null }
             </Route>
+
             </div>
 
              
