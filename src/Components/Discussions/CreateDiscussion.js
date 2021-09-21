@@ -7,17 +7,40 @@ function CreateDiscussion() {
     const history = useHistory()
     const [title, setTitle] = useState("")
     const [body, setBody] = useState("")
+
+
+    function handleSubmit(e) {
+        e.preventDefault()
+        fetch('/discussions', {
+            method: 'POST',
+            header: {
+                "Accepts": "application/json",
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                title,
+                body,
+            })
+        }).then((r) => {
+            if (r.ok) {
+                r.json().then((discussion) => console.log(discussion))
+            } else {
+                r.json().then((err) => console.log(err))
+            }
+        })
+    }
+
     return (
         <div>
-            <form>
+            <form onSumbit={handleSubmit}>
                 <div className="ui form">
                 <div className="field">
                     <label>Title</label>
-                    <textarea rows="2"></textarea>
+                    <textarea rows="2" name="title" value={title} onChange={(e) => setTitle(e.target.value)}></textarea>
                 </div>
                 <div className="field">
                     <label>Body</label>
-                    <textarea></textarea>
+                    <textarea name="body" value={body} onChange={(e) => setBody(e.target.value)}></textarea>
                 </div>
 
                 </div>
