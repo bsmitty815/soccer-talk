@@ -1,19 +1,22 @@
 
 import { useHistory } from 'react-router-dom'
-import { useState} from 'react'
+import { useState } from 'react'
 
 function CreateDiscussion() {
 
     const history = useHistory()
     const [title, setTitle] = useState("")
     const [body, setBody] = useState("")
+    console.log(body)
+    console.log(title)
 
 
     function handleSubmit(e) {
         e.preventDefault()
+        console.log("form clicked")
         fetch('/discussions', {
             method: 'POST',
-            header: {
+            headers: {
                 "Accepts": "application/json",
                 "Content-Type": "application/json",
             },
@@ -23,7 +26,7 @@ function CreateDiscussion() {
             })
         }).then((r) => {
             if (r.ok) {
-                r.json().then((discussion) => console.log(discussion))
+                r.json().then((discussion) => console.log(discussion, "returned discussion"))
             } else {
                 r.json().then((err) => console.log(err))
             }
@@ -32,7 +35,7 @@ function CreateDiscussion() {
 
     return (
         <div>
-            <form onSumbit={handleSubmit}>
+            <form onSubmit={handleSubmit}>
                 <div className="ui form">
                 <div className="field">
                     <label>Title</label>
