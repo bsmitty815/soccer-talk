@@ -6,3 +6,21 @@ export const setDiscussions = (discussions) => {
     }
     
 }
+
+export const addDiscussion = (discussion) => {
+
+    return {
+        type: "ADD_DISCUSSION",
+        payload: discussion
+    }
+    
+}
+
+export const removeDiscussion = (id) => {
+
+    return {
+        type: "REMOVE_DISCUSSION",
+        payload: id
+    }
+    
+}

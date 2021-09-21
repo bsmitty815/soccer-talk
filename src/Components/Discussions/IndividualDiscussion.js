@@ -1,16 +1,23 @@
 
-import { useParams } from 'react-router-dom'
+import { useParams, useHistory } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
-import { removeDiscussion } from '../Redux/Actions/removeDiscussionActions';
+import { removeDiscussion } from '../Redux/Actions/discussionActions';
+
 
 
 function IndividualDiscussion() {
     const { id } = useParams();
     const discussions = useSelector(state => state.discussions)
     const dispatch = useDispatch()
-
+    const history = useHistory()
+    
     function handleDelete(){
         dispatch(removeDiscussion(id))
+        fetch(`${id}`, {
+            method: "DELETE",
+        })
+        .then((r) => console.log(r))
+        history.push('/')
     }
 
     const discussionFound = discussions.filter(discussion => discussion.id == id)

@@ -28,7 +28,7 @@ function HomePageContainer({setUser, user}) {
                 <Route exact path="/CreateDiscussion">
                     <CreateDiscussion />
                 </Route>
-                <Route exact path="/discussion/:id">
+                <Route exact path="/discussions/:id">
                     <IndividualDiscussion />
                 </Route>
                 <Route path="/">
