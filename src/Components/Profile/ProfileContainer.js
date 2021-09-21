@@ -1,7 +1,7 @@
 
 
 function ProfileContainer({user}) {
-    console.log(user)
+    
 
     
     return (

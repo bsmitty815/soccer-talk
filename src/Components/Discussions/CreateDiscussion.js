@@ -7,8 +7,6 @@ function CreateDiscussion() {
     const history = useHistory()
     const [title, setTitle] = useState("")
     const [body, setBody] = useState("")
-    console.log(body)
-    console.log(title)
 
 
     function handleSubmit(e) {

@@ -11,7 +11,7 @@ import 'semantic-ui-css/semantic.min.css'
 
 function App() {
   const [user, setUser] = useState(null)
-  //console.log(user)
+  
 
   useEffect(() => {
     fetch('/me').then((r) => {
@@ -20,9 +20,7 @@ function App() {
       }
     })
   }, [])
-  //navbar
-  //discussions container
-  //loginsignupcontainer \\ profile container
+
   return (
     <div className="App">
       <Header />

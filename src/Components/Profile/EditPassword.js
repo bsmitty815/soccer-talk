@@ -6,8 +6,7 @@ function EditPassword({setUser}) {
     const [password, setPassword] = useState("")
     const [passwordConfirmation, setPasswordConfirmation] = useState("")
     const [messages, setMessages] = useState("")
-    console.log(password)
-    console.log(passwordConfirmation)
+
 
         //handle edit password
         function handleSubmit(e) {

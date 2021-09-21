@@ -1,6 +1,13 @@
 
+import { useEffect } from 'react'
 
 function AllDiscussionsContainer() {
+
+    useEffect(() => {
+        fetch('/discussions')
+        .then(response => response.json())
+        .then(data => console.log(data))
+    }, [])
 
 
     return (
