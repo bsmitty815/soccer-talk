@@ -5,7 +5,7 @@ import { useState } from 'react'
 function CommentsContainer({discussion, comments}) {
     console.log(comments)
     console.log(discussion)
-    const [showCreateComment, setShowCreateComment] = useState(false)
+    const [showCreateComment, setShowCreateComment] = useState(true)
 
 
     function handleShowCreateComment() {
@@ -15,7 +15,7 @@ function CommentsContainer({discussion, comments}) {
         <div>
             <div>
                 {(showCreateComment) ? <button onClick={handleShowCreateComment}>Create Comment</button> : null }
-                {(showCreateComment) ? null : <CreateComment /> }
+                {(showCreateComment) ? null : <CreateComment discussion={discussion} handleShowCreateComment={handleShowCreateComment} /> }
             </div>
         </div>
     )
