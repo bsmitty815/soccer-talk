@@ -2,6 +2,7 @@
 import { useParams, useHistory } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
 import { removeDiscussion } from '../Redux/Actions/discussionActions';
+import CommentsContainer from './CommentsContainer'
 
 
 
@@ -27,7 +28,7 @@ function IndividualDiscussion() {
 
     const discussionFound = discussions.filter(discussion => discussion.id == id)
     const displayDiscussion = discussionFound.map((data) => {
-        return <div key={data.id}><h1>{data.title}</h1><p>{data.body}</p><button onClick={handleDelete}>Delete</button></div>
+        return <div><div key={data.id}><h1>{data.title}</h1><p>{data.body}</p><button onClick={handleDelete}>Delete</button></div><CommentsContainer discussion={data} comments={discussion.comments}/><div></div></div>
     })
 
     //set up comments container seperately

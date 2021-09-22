@@ -1,7 +1,7 @@
 
 import { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import { setDiscussions } from '../Redux/Actions/discussionActions'
+//import { setDiscussions } from '../Redux/Actions/discussionActions'
 import { Link } from 'react-router-dom'
 import Loading from '../Loading/Loading'
 import { fetchDiscussions } from '../Redux/reducer'
