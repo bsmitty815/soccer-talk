@@ -28,7 +28,7 @@ function IndividualDiscussion() {
 
     const discussionFound = discussions.filter(discussion => discussion.id == id)
     const displayDiscussion = discussionFound.map((data) => {
-        return <div><div key={data.id}><h1>{data.title}</h1><p>{data.body}</p><button onClick={handleDelete}>Delete</button></div><CommentsContainer discussion={data} comments={data.comments}/><div></div></div>
+        return <div key={data.id}><div><h1>{data.title}</h1><p>{data.body}</p><button className="ui button"  onClick={handleDelete}>Delete</button></div><CommentsContainer discussion={data} comments={data.comments}/><div></div></div>
     })
 
     //set up comments container seperately
