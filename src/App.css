@@ -1,25 +1,57 @@
 .App {
-  text-align: center;
-}
-
-
-.home-page-container {
-  display: flex;
-  text-align: center;
-  justify-content: center;
   max-width: 900px;
-  margin: auto;
+  min-height: 100vh;
+  margin: 0;
 }
 
-
-.home-page-left-container {
-  float: left;
+.header {
   display: flex;
-  max-width: 75%;
+  flex-direction: column;
+  flex: 5;
+  text-align: center;
+  min-height: 100px;
+}
+
+.footer {
+  display: flex;
+  flex-direction: column;
+  flex: 5;
+  text-align: center;
+  min-height: 100px;
+  padding-bottom: 20px;
+}
+ /* home page container */
+.home-page {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin: auto;
+  text-align: center;
+}
+.home-page-left-container {
+  display: flex;
+  
+  min-height: 60vh;
+  min-width: 80%;
+  padding: 10px;
+  
 }
 .home-page-right-container {
-  float: right;
-  display: flex;
-  max-width: 25%;
+  padding: 10px;
+  background: beige;
+  
+  
+  
+  
+}
+/* navbar */
+.navbar {
+  text-align: left;
+}
 
+/* discussions container*/
+.discussion-container {
+  border: 4px solid #1C6EA4;
+  border-radius: 10px 10px 10px 10px;
+  padding-bottom: 20px;
 }

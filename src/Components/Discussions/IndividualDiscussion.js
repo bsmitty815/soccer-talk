@@ -3,7 +3,8 @@ import { useParams, useHistory } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
 import { removeDiscussion } from '../Redux/Actions/discussionActions';
 import CommentsContainer from './CommentsContainer'
-
+import { useEffect } from 'react'
+import { fetchDiscussions } from '../Redux/reducer'
 
 
 function IndividualDiscussion() {
@@ -13,8 +14,6 @@ function IndividualDiscussion() {
     const history = useHistory()
     
     function handleDelete(){
-        
-
         fetch(`${id}`, {
             method: "DELETE",
         })
@@ -22,9 +21,10 @@ function IndividualDiscussion() {
             console.log(r)
             dispatch(removeDiscussion(id))
             history.push('/')
-        })
-        
+        })  
     }
+
+
 
     const discussionFound = discussions.filter(discussion => discussion.id == id)
     const displayDiscussion = discussionFound.map((data) => {

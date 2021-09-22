@@ -30,6 +30,10 @@ function App() {
           <HomePageContainer user={user} setUser={setUser} />
         </Route>
       </Switch>
+
+      <div className="footer">
+
+      </div>
     </div>
   );
 }

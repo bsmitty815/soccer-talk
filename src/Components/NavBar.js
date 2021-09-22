@@ -18,7 +18,7 @@ function NavBar({setUser}) {
     }
     
     return (
-        <div>
+        <div className="navbar">
             <h1>navbar container</h1>
             <p>
             <Link to='/Home'>

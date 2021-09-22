@@ -13,8 +13,9 @@ function HomePageContainer({setUser, user}) {
 
 
     return (
-        <div className="home-page-container">
-            <div className="home-page-left-container">
+        <div className="home-page">
+            <div className="home-page-left-continer">
+            
             <Switch>
                 <Route exact path="/Home">
                     <AllDiscussionsContainer />
@@ -35,10 +36,11 @@ function HomePageContainer({setUser, user}) {
                     <AllDiscussionsContainer />
                 </Route>
             </Switch>
+          
             </div>
 
             <div className="home-page-right-container">
- 
+            
 
             <Route>
                 {(user) ? null : <LoginSignupContainer setUser={setUser} /> }
@@ -50,10 +52,9 @@ function HomePageContainer({setUser, user}) {
             <Route>
                 {(user) ? <NavBar setUser={setUser} /> : null }
             </Route>
-
+            
             </div>
 
-             
         </div>
     )
 }

@@ -10,7 +10,7 @@ function CommentsContainer({discussion, comments}) {
     //console.log(discussion, "discussion")
     const [showCreateComment, setShowCreateComment] = useState(true)
     const dispatch= useDispatch()
-
+    console.log(comments, "comments container")
 
     function handleShowCreateComment() {
         setShowCreateComment((showCreateComment) => !showCreateComment)
@@ -23,9 +23,9 @@ function CommentsContainer({discussion, comments}) {
         })
         .then((r) => {
             console.log(r)
-            r.json().then((data) => console.log(data, "comment destroyed"))
-            //dispatch(removeComment(id))
+            r.json().then((data) => dispatch(removeComment(data)))
             //history.push('/')
+            
         })
     }
 

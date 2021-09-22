@@ -34,10 +34,10 @@ export const addComment = (discussion) => {
 
 }
 
-export const removeComment = (id) => {
+export const removeComment = (discussion) => {
 
     return {
         type: "REMOVE_COMMENT",
-        payload: id
+        payload: discussion
     }
 }

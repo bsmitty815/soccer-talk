@@ -11,7 +11,7 @@ function AllDiscussionsContainer() {
     const discussions = useSelector(state => state.discussions)
     const dispatch = useDispatch()
     //console.log(discussions, "state")
-    console.log(discussions)
+    //console.log(discussions)
 
     // useEffect(() => {
     //     fetch('/discussions')
@@ -29,7 +29,7 @@ function AllDiscussionsContainer() {
     if (!discussions) return <Loading />
 
     const discussionDisplay = discussions.map((discussion) => {
-        return <div key={discussion.id} id={discussion.id} ><h1><Link to={`/discussions/${discussion.id}`}>{discussion.title}</Link></h1><p>{discussion.summary}</p></div>
+        return <div className="discussion-container" key={discussion.id} id={discussion.id} ><h1><Link to={`/discussions/${discussion.id}`}>{discussion.title}</Link></h1><p>{discussion.summary}</p></div>
     })
 
     
