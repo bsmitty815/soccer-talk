@@ -12,12 +12,17 @@ function IndividualDiscussion() {
     const history = useHistory()
     
     function handleDelete(){
-        dispatch(removeDiscussion(id))
+        
+
         fetch(`${id}`, {
             method: "DELETE",
         })
-        .then((r) => console.log(r))
-        history.push('/')
+        .then((r) => {
+            console.log(r)
+            dispatch(removeDiscussion(id))
+            history.push('/')
+        })
+        
     }
 
     const discussionFound = discussions.filter(discussion => discussion.id == id)

@@ -4,14 +4,14 @@ import { useState, useEffect } from 'react'
 import { Switch, Route } from 'react-router-dom'
 import Header from './Components/Header'
 import HomePageContainer from './Components/HomePageContainer';
-import 'semantic-ui-css/semantic.min.css'
+
 
 
 
 
 function App() {
   const [user, setUser] = useState(null)
-  
+  //console.log(user)
 
   useEffect(() => {
     fetch('/me').then((r) => {

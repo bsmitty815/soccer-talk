@@ -5,7 +5,15 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter as Router } from 'react-router-dom'
 import { Provider } from 'react-redux'
+import 'semantic-ui-css/semantic.min.css'
 import store from './Components/Redux/store'
+
+
+// import { createStore, applyMiddleware } from 'redux'
+// import reducer from './Components/Redux/reducer'
+// import thunk from 'redux-thunk'
+
+// const store = createStore(reducer, applyMiddleware(thunk))
 
 ReactDOM.render(
   <React.StrictMode>
