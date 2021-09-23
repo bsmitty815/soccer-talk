@@ -27,20 +27,22 @@
   justify-content: center;
   margin: auto;
   text-align: center;
+  
+  
 }
 .home-page-left-container {
   display: flex;
   
   min-height: 60vh;
-  min-width: 80%;
+  width: 80%;
   padding: 10px;
-  
+  float:left;
 }
 .home-page-right-container {
   padding: 10px;
   background: beige;
-  
-  
+  width: 20%;
+  float:left;
   
   
 }
