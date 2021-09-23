@@ -8,6 +8,7 @@ import EditProfile from './Profile/EditProfile'
 import EditPassword from './Profile/EditPassword'
 import CreateDiscussion from './Discussions/CreateDiscussion'
 import IndividualDiscussion from './Discussions/IndividualDiscussion'
+import SoccerHighlightVideoApi from './Api/SoccerHighlightVideoApi'
 
 function HomePageContainer({setUser, user}) {
 
@@ -31,6 +32,9 @@ function HomePageContainer({setUser, user}) {
                 </Route>
                 <Route exact path="/discussions/:id">
                     <IndividualDiscussion />
+                </Route>
+                <Route exact path="/highlight-videos">
+                    <SoccerHighlightVideoApi />
                 </Route>
                 <Route path="/">
                     <AllDiscussionsContainer />

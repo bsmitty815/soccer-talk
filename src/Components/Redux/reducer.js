@@ -1,20 +1,5 @@
 
-import { setDiscussions } from '../Redux/Actions/discussionActions'
 
-
-//fetch for all discussions
-export function fetchDiscussions() {
-    
-    return function (dispatch) {
-        dispatch({ type: "discussions/discussionsLoading"})
-        fetch("/discussions")
-        .then((response) => response.json())
-        .then((data) => {
-            //console.log(data, "fetch reducer")
-            dispatch(setDiscussions(data))
-        })
-    }
-}
 
 const initialState = {discussions: [], status: "idle"}
 

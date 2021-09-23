@@ -2,6 +2,7 @@
   max-width: 900px;
   min-height: 100vh;
   margin: 0;
+  margin: auto;
 }
 
 .header {
@@ -27,12 +28,10 @@
   justify-content: center;
   margin: auto;
   text-align: center;
-  
-  
 }
+
 .home-page-left-container {
   display: flex;
-  
   min-height: 60vh;
   width: 80%;
   padding: 10px;
@@ -43,9 +42,8 @@
   background: beige;
   width: 20%;
   float:left;
-  
-  
 }
+
 /* navbar */
 .navbar {
   text-align: left;
