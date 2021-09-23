@@ -26,6 +26,11 @@ function NavBar({setUser}) {
             </Link>
             </p>
             <p>
+            <Link to='/highlight-videos'>
+                <button className="ui button" >Highlight Videos</button>
+            </Link>
+            </p>
+            <p>
             <Link to='/EditProfile'>
                 <button className="ui button" >Edit Profile</button>
             </Link>
