@@ -13,7 +13,7 @@ function IndividualDiscussion() {
     const history = useHistory()
     
     function handleDelete(){
-        fetch(`${id}`, {
+        fetch(`discussions/${id}`, {
             method: "DELETE",
         })
         .then((r) => {
