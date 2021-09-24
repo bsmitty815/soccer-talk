@@ -26,7 +26,7 @@ function AllDiscussionsContainer() {
 
     
     const discussionDisplay = discussions.sort((a,b) => b.id - a.id).slice(0, discussionCount).map((discussion) => {
-        return <div className="discussion-container" key={discussion.id} id={discussion.id} ><h1><Link to={`/discussions/${discussion.id}`}>{discussion.title}</Link></h1><p>{discussion.summary}</p><p>Updated on - {discussion.updated_at}</p></div>
+        return <div className="discussion-container" key={discussion.id} id={discussion.id} ><h1><Link to={`/discussions/${discussion.id}`}>{discussion.title}</Link></h1><p>{discussion.summary}</p><p>Created on - {discussion.created_at}</p></div>
     })
 
     
