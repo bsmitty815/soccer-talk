@@ -1,13 +1,13 @@
 
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { addComment } from '../Redux/Actions/discussionActions'
-import { fetchDiscussions } from '../Redux/reducer'
+
 
 function CreateComment({discussion, handleShowCreateComment}) {
     const [commentInput, setCommentInput] = useState("")
     const dispatch = useDispatch()
-    console.log(discussion, "comments create")
+    
 
 
 
@@ -27,7 +27,7 @@ function CreateComment({discussion, handleShowCreateComment}) {
             if (r.ok) {
                 r.json().then((data) => dispatch(addComment(data))) //sending back the discussion plus comments
                 handleShowCreateComment()
-                //dispatch(fetchDiscussions())
+                
             } else {
                 r.json().then((err) => console.log(err))
             }

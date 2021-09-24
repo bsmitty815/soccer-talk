@@ -3,8 +3,7 @@ import { useParams, useHistory } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
 import { removeDiscussion } from '../Redux/Actions/discussionActions';
 import CommentsContainer from './CommentsContainer'
-import { useEffect } from 'react'
-import { fetchDiscussions } from '../Redux/reducer'
+
 
 
 function IndividualDiscussion() {
@@ -26,12 +25,12 @@ function IndividualDiscussion() {
 
 
 
-    const discussionFound = discussions.filter(discussion => discussion.id == id)
+    const discussionFound = discussions.filter(discussion => discussion.id === parseInt(id))
     const displayDiscussion = discussionFound.map((data) => {
         return <div key={data.id}><div><h1>{data.title}</h1><p>{data.body}</p><button className="ui button"  onClick={handleDelete}>Delete</button></div><CommentsContainer discussion={data} comments={data.comments}/><div></div></div>
     })
 
-    //set up comments container seperately
+    
 
    
 

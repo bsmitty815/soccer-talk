@@ -6,32 +6,30 @@ import { removeComment } from '../Redux/Actions/discussionActions'
 
 
 function CommentsContainer({discussion, comments}) {
-    //console.log(comments, "comments discussion container")
-    //console.log(discussion, "discussion")
+
     const [showCreateComment, setShowCreateComment] = useState(true)
     const dispatch= useDispatch()
-    console.log(comments, "comments container")
-
+   
+    //toggle create comment bar
     function handleShowCreateComment() {
         setShowCreateComment((showCreateComment) => !showCreateComment)
     }
 
-    function handleDelete(commentId, discussionId) {
-        console.log(commentId, discussionId)
+    //delete comment
+    function handleDelete(commentId) {
         fetch(`comments/${commentId}`, {
             method: "DELETE",
         })
         .then((r) => {
-            console.log(r)
-            r.json().then((data) => dispatch(removeComment(data)))
-            //history.push('/')
-            
+            r.json().then((data) => dispatch(removeComment(data)))   
         })
     }
 
+    //comments display render
     const commentsDisplay = comments.map((commentData) => {
-        return <div key={commentData.id}><div>{commentData.body}</div><div><button onClick={() => handleDelete(commentData.id, discussion.id)}>Delete Comment</button></div></div>
+        return <div className="ui feed" key={commentData.id}><div className="summary">Username: {commentData.user.username}</div><div className="extra text">{commentData.body}</div><div><button className="ui button" onClick={() => handleDelete(commentData.id)}>Delete Comment</button></div></div>
     })
+
     return (
         <div>
             <div>

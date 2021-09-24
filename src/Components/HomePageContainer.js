@@ -14,8 +14,8 @@ function HomePageContainer({setUser, user}) {
 
 
     return (
-        <div className="home-page">
-            <div className="home-page-left-continer">
+        <div className="home-page" id="home-page">
+            <div className="left-home-page">
             
             <Switch>
                 <Route exact path="/Home">
@@ -43,7 +43,7 @@ function HomePageContainer({setUser, user}) {
           
             </div>
 
-            <div className="home-page-right-container">
+            <div className="right-home-page">
             
 
             <Route>

@@ -9,7 +9,7 @@ function ProfileContainer({user}) {
             <h1>profile container</h1>
             <p>{user.profile.bio}</p>
             
-            <h1>{user.profile.team}</h1>
+            <h1>My Team: {user.profile.team}</h1>
         </div>
     )
 }

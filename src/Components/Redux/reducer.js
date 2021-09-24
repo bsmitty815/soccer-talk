@@ -28,7 +28,7 @@ export default function reducer(state = initialState, action) {
 
         case "REMOVE_DISCUSSION":
             //delete discussion
-            return {...state, discussions: state.discussions.filter(discussion => discussion.id != action.payload)}
+            return {...state, discussions: state.discussions.filter(discussion => discussion.id !== action.payload)}
 
         case "ADD_DISCUSSION":
             //add discussion

@@ -8,7 +8,6 @@ export function fetchDiscussions() {
         fetch("/discussions")
         .then((response) => response.json())
         .then((data) => {
-            //console.log(data, "fetch reducer")
             dispatch(setDiscussions(data))
         })
     }
@@ -53,7 +52,7 @@ export const addComment = (discussion) => {
 }
 
 export const removeComment = (discussion) => {
-
+    //sent back the discussion with all the comments
     return {
         type: "REMOVE_COMMENT",
         payload: discussion
