@@ -14,8 +14,8 @@ import HomeNavBar from './HomeNavBar'
 
 function HomePageContainer({setUser, user}) {
 
-    const [searchTerm, setSearchTerm] = useState([])
-
+    const [searchTerm, setSearchTerm] = useState("")
+    console.log(searchTerm)
     return (
         <div id="home-page">
             <div className="left-home-page">

@@ -10,7 +10,7 @@ function AllDiscussionsContainer({searchTerm}) {
     const discussions = useSelector(state => state.discussions)
     const dispatch = useDispatch()
     const [discussionCount, setDiscussionCount] = useState(6)
-    console.log(discussions)
+    //console.log(discussions)
 
     useEffect(() => {
 
@@ -37,16 +37,15 @@ function AllDiscussionsContainer({searchTerm}) {
 
     //
 
-    const filteredDiscussionsData = discussions.filter((data) => data.title.toLowerCase().includes(searchTerm.toLowerCase) || data.body.toLowerCase().includes(searchTerm.toLowerCase))
+    const filteredDiscussionsData = discussions.filter((data) => data.title.toLowerCase().includes(searchTerm.toLowerCase()) || data.body.toLowerCase().includes(searchTerm.toLowerCase()))
     const discussionDisplay = filteredDiscussionsData.sort((a,b) => b.id - a.id).slice(0, discussionCount).map((discussion) => {
         return <div className="discussion-container" key={discussion.id} id={discussion.id} ><h1><Link to={`/discussions/${discussion.id}`}>{discussion.title}</Link></h1><p>{discussion.summary}</p><p>Created on - {discussion.created_at}</p></div>
     })
-
+    console.log(filteredDiscussionsData)
     
     
     return (
         <div>
-            <h1>All Discussions</h1>
             {discussionDisplay}
             <button className="ui button" onClick={handleClick}>Load More</button>
         </div>
