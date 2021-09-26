@@ -1,4 +1,5 @@
 
+import { useState } from 'react'
 import { Route, Switch } from 'react-router-dom'
 import AllDiscussionsContainer from './Discussions/AllDiscussionsContainer'
 import LoginSignupContainer from './Auth/LoginSignupContainer'
@@ -9,17 +10,19 @@ import EditPassword from './Profile/EditPassword'
 import CreateDiscussion from './Discussions/CreateDiscussion'
 import IndividualDiscussion from './Discussions/IndividualDiscussion'
 import SoccerHighlightVideoApi from './Api/SoccerHighlightVideoApi'
+import HomeNavBar from './HomeNavBar'
 
 function HomePageContainer({setUser, user}) {
 
+    const [searchTerm, setSearchTerm] = useState([])
 
     return (
-        <div className="home-page" id="home-page">
+        <div id="home-page">
             <div className="left-home-page">
-            
+            <HomeNavBar setSearchTerm={setSearchTerm} searchTerm={searchTerm} />
             <Switch>
                 <Route exact path="/Home">
-                    <AllDiscussionsContainer />
+                    <AllDiscussionsContainer searchTerm={searchTerm} />
                 </Route>
                 <Route exact path="/EditProfile">
                     {(user) ? <EditProfile setUser={setUser} user={user}/> : null }
@@ -37,7 +40,7 @@ function HomePageContainer({setUser, user}) {
                     <SoccerHighlightVideoApi />
                 </Route>
                 <Route path="/">
-                    <AllDiscussionsContainer />
+                    <AllDiscussionsContainer searchTerm={searchTerm} />
                 </Route>
             </Switch>
           
@@ -58,7 +61,7 @@ function HomePageContainer({setUser, user}) {
             </Route>
             
             </div>
-
+            
         </div>
     )
 }

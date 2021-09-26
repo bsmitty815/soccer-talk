@@ -22,6 +22,12 @@
   padding-bottom: 20px;
 }
 
+.bottom-scroll {
+  width: 100%;
+  height: 700px;
+  overflow-y: scroll;
+}
+
 /* home page container */
 
 #home-page {
@@ -37,33 +43,8 @@
 }
 
 
- /* home page container */
- /*
- 
-.home-page {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-  grid-gap: .5rem;
-  align-items: flex-start;
-  justify-content: center;
-  margin: auto;
-  text-align: center;
-  grid-auto-flow: column;
-  grid-auto-columns: minmax(260px, 1fr);
-}
 
-.home-page-left-container {
-  display: flex;
-  min-height: 60vh;
-  padding: 10px;
-  min-width: 80%;
-}
-.home-page-right-container {
-  padding: 10px;
-  background: beige;
-  min-width: 20%;
-}
-*/
+ 
 /* navbar */
 .navbar {
   text-align: left;

@@ -21,6 +21,10 @@ function App() {
     })
   }, [])
 
+
+
+
+
   return (
     <div className="App">
       <Header />
@@ -34,6 +38,7 @@ function App() {
       <div className="footer">
 
       </div>
+      
     </div>
   );
 }
