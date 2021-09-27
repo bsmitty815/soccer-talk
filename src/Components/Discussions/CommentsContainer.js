@@ -6,8 +6,7 @@ import { removeComment } from '../Redux/Actions/discussionActions'
 
 
 function CommentsContainer({discussion, comments, user}) {
-    console.log(user, "user")
-    console.log(comments, "comments")
+
     const [showCreateComment, setShowCreateComment] = useState(true)
     const dispatch= useDispatch()
    

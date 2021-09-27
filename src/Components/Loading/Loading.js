@@ -9,7 +9,7 @@ function Loading() {
 
     // loading icon
     return (
-        <div>
+        <div className="loading-container">
             <ReactLoading type={'spin'} color={'green'} height={'20%'} width={'20%'} />
         </div>
     )

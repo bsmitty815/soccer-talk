@@ -1,7 +1,14 @@
 
 
 
-const initialState = {discussions: [], status: "idle"}
+//const initialState = {discussions: [], status: "idle"}
+const initialState = {
+    discussions: [],
+    allLoaded: false,
+    loading: false,
+    pageNumber: 0,
+    status: "idle"
+}
 
 export default function reducer(state = initialState, action) {
     // make a copy of current state
@@ -9,22 +16,51 @@ export default function reducer(state = initialState, action) {
     // return updated state
     switch(action.type) {
 
-        case "discussions/discussionsLoading":
-            return {
-                ...state,
-                status: "loading",
-            };
+        // case "discussions/discussionsLoading":
+        //     return {
+        //         ...state,
+        //         status: "loading",
+        //     };
+        case "LOADING_DISCUSSIONS":
+            return {...state, loading: true}
+        case "RESET_ALL_LOADED":
+            return {...state, allLoaded: false}
 
-        case "discussions/discussionsLoaded":
-            return {
-                ...state,
-                entities: action.payload,
-                status: "idle",
-            };
+        // case "discussions/discussionsLoaded":
+        //     return {
+        //         ...state,
+        //         entities: action.payload,
+        //         status: "idle",
+        //     };
 
+
+
+        // case "SET_DISCUSSIONS":
+        //     //return new state with all discussions
+        //     return {...state, discussions: action.payload};
         case "SET_DISCUSSIONS":
+            //debugger
             //return new state with all discussions
-            return {...state, discussions: action.payload};
+            return {
+                //pageNumber: pageNumber + 1,
+                
+                ...state,
+                pageNumber: state.pageNumber + 1,
+                //discussions: [state+"PageNumber"] + 1,
+                //[state.filter+"PageNumber"]: state[state.filter+"PageNumber"] + 1,
+                //discussions: [...state.pageNumber + 1],
+                //discussions: [...state.pageNumber, ...state.pageNumber + 1],
+                //[state.filter+"PageNumber"]: state[state.filter+"PageNumber"] + 1,
+                discussions: [...state.discussions, ...action.payload],
+                
+                allLoaded: action.payload.length < 5 ? true : false,
+                loading: false,
+                show: {}
+            };
+
+
+
+
 
         case "REMOVE_DISCUSSION":
             //delete discussion
