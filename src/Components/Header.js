@@ -1,11 +1,10 @@
 
-import HeaderImage from '../images/soccer-talk-image.png'
+import HeaderImage from '../images/soccer-talk-header.png'
 function Header() {
 
     return (
         <div className="header">
-            <h1>Soccer Talk</h1>
-            <img src={HeaderImage} alt="soccer-talk-header"/>
+            <img src={HeaderImage} alt="soccer-talk-header" />
         </div>
     )
 }

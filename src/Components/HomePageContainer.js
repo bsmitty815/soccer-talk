@@ -15,7 +15,7 @@ import HomeNavBar from './HomeNavBar'
 function HomePageContainer({setUser, user}) {
 
     const [searchTerm, setSearchTerm] = useState("")
-    console.log(searchTerm)
+    
     return (
         <div id="home-page">
             <div className="left-home-page">
@@ -34,7 +34,7 @@ function HomePageContainer({setUser, user}) {
                     <CreateDiscussion />
                 </Route>
                 <Route exact path="/discussions/:id">
-                    <IndividualDiscussion />
+                    <IndividualDiscussion user={user} />
                 </Route>
                 <Route exact path="/highlight-videos">
                     <SoccerHighlightVideoApi />

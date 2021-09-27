@@ -6,12 +6,14 @@ import CommentsContainer from './CommentsContainer'
 
 
 
-function IndividualDiscussion() {
+function IndividualDiscussion({user}) {
     const { id } = useParams();
     const discussions = useSelector(state => state.discussions)
     const dispatch = useDispatch()
     const history = useHistory()
-    
+    console.log(user, "user")
+    console.log(discussions, "discussions")
+    //delete discussion container
     function handleDelete(){
         fetch(`discussions/${id}`, {
             method: "DELETE",
@@ -24,10 +26,16 @@ function IndividualDiscussion() {
     }
 
 
-
+    //find specific discussion with useParams id
     const discussionFound = discussions.filter(discussion => discussion.id === parseInt(id))
+    //discussion display function
     const displayDiscussion = discussionFound.map((data) => {
-        return <div key={data.id}><div><h1>{data.title}</h1><p>{data.body}</p><button className="ui button"  onClick={handleDelete}>Delete</button></div><CommentsContainer discussion={data} comments={data.comments}/><div></div></div>
+        return <div key={data.id}><div>
+                <h1>{data.title}</h1>
+                <p>{data.body}</p>
+                {user.id === data.user_id ? <button className="ui button"  onClick={handleDelete}>Delete Discussion</button> : ""}
+                </div><CommentsContainer discussion={data} comments={data.comments} user={user}/><div>
+            </div></div>
     })
 
     
