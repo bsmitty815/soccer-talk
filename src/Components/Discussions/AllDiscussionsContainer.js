@@ -37,7 +37,15 @@ function AllDiscussionsContainer({searchTerm}) {
 
     //
 
-    const filteredDiscussionsData = discussions.filter((data) => data.title.toLowerCase().includes(searchTerm.toLowerCase()) || data.body.toLowerCase().includes(searchTerm.toLowerCase()))
+    //filter through data depending on what is in the search bar
+    const filteredDiscussionsData = discussions.filter((data) => { 
+        if (searchTerm === "") {
+            return data
+        } else {
+            return data.title.toLowerCase().includes(searchTerm.toLowerCase()) || data.body.toLowerCase().includes(searchTerm.toLowerCase())
+        }
+    })
+    //sort the data and put it on the page
     const discussionDisplay = filteredDiscussionsData.sort((a,b) => b.id - a.id).slice(0, discussionCount).map((discussion) => {
         return <div className="discussion-container" key={discussion.id} id={discussion.id} ><h1><Link to={`/discussions/${discussion.id}`}>{discussion.title}</Link></h1><p>{discussion.summary}</p><p>Created on - {discussion.created_at}</p></div>
     })
@@ -48,6 +56,7 @@ function AllDiscussionsContainer({searchTerm}) {
         <div>
             {discussionDisplay}
             <button className="ui button" onClick={handleClick}>Load More</button>
+            <div>{ discussions.length === discussionCount ? "" : <button className="ui button" onClick={handleClick}>Load More turnary</button>}</div>
         </div>
     )
 }
