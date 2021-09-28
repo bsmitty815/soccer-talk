@@ -11,6 +11,7 @@ import CreateDiscussion from './Discussions/CreateDiscussion'
 import IndividualDiscussion from './Discussions/IndividualDiscussion'
 import SoccerHighlightVideoApi from './Api/SoccerHighlightVideoApi'
 import HomeNavBar from './HomeNavBar'
+import SoccerTable from './Api/SoccerTable'
 
 function HomePageContainer({setUser, user}) {
 
@@ -38,6 +39,9 @@ function HomePageContainer({setUser, user}) {
                 </Route>
                 <Route exact path="/highlight-videos">
                     <SoccerHighlightVideoApi />
+                </Route>
+                <Route exact path="/football-table">
+                    <SoccerTable />
                 </Route>
                 <Route path="/">
                     <AllDiscussionsContainer searchTerm={searchTerm} />

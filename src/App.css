@@ -61,3 +61,26 @@
   border-radius: 10px 10px 10px 10px;
   padding-bottom: 20px;
 }
+
+/* soccer table */
+
+table.soccer-table {
+  width: 100%;
+  background-color: #E6E6E6;
+  border-collapse: separate;
+  border-width: 2px;
+  border-color: #F8A4A4;
+  border-style: solid;
+  color: #000000;
+}
+
+table.csoccer-table td, table.soccer-table th {
+  border-width: 2px;
+  border-color: #F8A4A4;
+  border-style: solid;
+  padding: 5px;
+}
+
+table.soccer-table thead {
+  background-color: #ABF8F8;
+}

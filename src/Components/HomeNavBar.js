@@ -14,6 +14,9 @@ function HomeNavBar({setSearchTerm, searchTerm}) {
             <Link to='/highlight-videos'>
                 <button className="ui button" >Highlight Videos</button>
             </Link>
+            <Link to='/football-table'>
+                <button className="ui button" >Table</button>
+            </Link>
 
             <div className="ui search">
             <div className="ui icon input">

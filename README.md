@@ -36,4 +36,7 @@ To learn React, check out the [React documentation](https://reactjs.org/).
 
 
 # Resources
+API = https://www.api-football.com/documentation-v3#section/Introduction
+I used the api-football to get data from to import the standings in to my table which you will need a key for if you decide to use it.
+
 This application was built using React, HTML, CSS, JavaScript, Redux, and Simantic UI.
