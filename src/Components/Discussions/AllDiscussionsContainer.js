@@ -19,14 +19,13 @@ function AllDiscussionsContainer({searchTerm}) {
     const pageNumber = useSelector(state => state.pageNumber)
     const allLoaded = useSelector(state => state.allLoaded)
     const loading = useSelector(state => state.loading)
+    console.log(allLoaded)
 
-    console.log(discussions, "discussions")
+   //useEffect to get more discussions
     useEffect(() => {
-        console.log("use effect fetch discussions")
-       //if(pageNumber === 0) fetchDiscussions(pageNumber)(dispatch)
+       
        if(pageNumber === 0) dispatch(fetchDiscussions(pageNumber))
-       //dispatch(fetchDiscussions(pageNumber))
-
+       
     }, [pageNumber, dispatch, discussions]);
 
     const isBottom = (el) => {
@@ -95,15 +94,22 @@ function AllDiscussionsContainer({searchTerm}) {
     }) 
     
     return (
-        <div id="discussions-display">
-            {discussionDisplay}
-            {loading && <Loading />}
-            {/*
+        <div>
+            <div id="discussions-display">
+                {discussionDisplay}
+                
+                {/*
 
-<div>{ discussions.length >= discussionCount - 6 ? <button className="ui button" onClick={handleClick}>Load More</button> : ""}</div>
-            */}
+                ]<div>{ discussions.length >= discussionCount - 6 ? <button className="ui button" onClick={handleClick}>Load More</button> : ""}</div>
+                */}
+                {loading && <Loading />}
+                {allLoaded ? "" : <p>Scroll For More</p>}
+            </div>
+            <div>
             
+            </div>
         </div>
+
     )
 }
 

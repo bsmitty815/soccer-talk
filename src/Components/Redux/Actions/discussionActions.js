@@ -20,7 +20,7 @@ export const fetchDiscussions = (pageNumber) => {
         //fetch("/discussions", {q: pageNumber})
         .then((response) => response.json())
         .then((data) => {
-            console.log(data, 'fetch', pageNumber)
+            //console.log(data, 'fetch', pageNumber)
             dispatch(setDiscussions(data))
         })
     }
