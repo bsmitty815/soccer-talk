@@ -43,7 +43,8 @@
 } 
 #home-page > .right-home-page {
   flex: 0 0 20vw;
-  background: beige;
+  border-radius: 5px 5px 0px 0px;
+  background-color: rgba(213, 242, 255, 0.897);
 }
 
 
@@ -62,9 +63,10 @@
 
 /* discussions container*/
 .discussion-container {
-  border: 4px solid #1C6EA4;
-  border-radius: 10px 10px 10px 10px;
-  padding-bottom: 20px;
+  border: 2px solid #1C6EA4;
+  background-color: rgba(213, 242, 255, 0.897);
+  padding-bottom: 10px;
+  margin-top: 5px;
 }
 
 /* soccer table */

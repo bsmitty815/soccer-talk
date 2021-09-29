@@ -84,13 +84,14 @@ function AllDiscussionsContainer({searchTerm}) {
             return data.title.toLowerCase().includes(searchTerm.toLowerCase()) || data.body.toLowerCase().includes(searchTerm.toLowerCase())
         }
     })
-    //sort the data and put it on the page
-    // const discussionDisplay = filteredDiscussionsData.sort((a,b) => b.id - a.id).slice(0, discussionCount).map((discussion) => {
-    //     return <div className="discussion-container" key={discussion.id} id={discussion.id} ><h1><Link to={`/discussions/${discussion.id}`}>{discussion.title}</Link></h1><p>{discussion.summary}</p><p>Created on - {discussion.created_at}</p></div>
-    // })   
+ 
 
     const discussionDisplay = filteredDiscussionsData.sort((a,b) => b.id - a.id).map((discussion) => {
-        return <div className="discussion-container" key={discussion.id} id={discussion.id} ><h1><Link to={`/discussions/${discussion.id}`}>{discussion.title}</Link></h1><p>{discussion.summary}</p><p>Created on - {discussion.created_at}</p></div>
+        return <div className="discussion-container" key={discussion.id} id={discussion.id} >
+            <h1><Link to={`/discussions/${discussion.id}`}>{discussion.title}</Link></h1>
+            <p>{discussion.summary}</p>
+            <p>Created on: {discussion.created_at}</p>
+            </div>
     }) 
     
     return (
@@ -98,10 +99,6 @@ function AllDiscussionsContainer({searchTerm}) {
             <div id="discussions-display">
                 {discussionDisplay}
                 
-                {/*
-
-                ]<div>{ discussions.length >= discussionCount - 6 ? <button className="ui button" onClick={handleClick}>Load More</button> : ""}</div>
-                */}
                 {loading && <Loading />}
                 {allLoaded ? "" : <p>Scroll For More</p>}
             </div>
