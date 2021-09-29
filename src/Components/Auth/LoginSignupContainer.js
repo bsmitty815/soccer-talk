@@ -7,7 +7,7 @@ function LoginSignupContainer({setUser}) {
 
 
     return (
-        <div>
+        <div className="login-signup-container">
             <LoginForm setUser={setUser} />
             <SignupForm setUser={setUser}/>
         </div>

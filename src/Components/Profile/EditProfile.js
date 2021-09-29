@@ -64,18 +64,18 @@ function EditProfile({setUser, user}) {
     const errorsDisplay = errorsString[0].replace(">", "")
 
     return (
-        <div>
+        <div className="edit-profile-container">
             <form className="ui form" onSubmit={handleSubmit}>
             <div className="ui form">
                 <div className="field">
-                    <label>bio</label>
+                    <label>Bio:</label>
                     <textarea placeholder={bio} value={bio} onChange={(e) => setBio(e.target.value)}></textarea>
                     <p>Maximum characters 200</p>
                 </div>
-                <div className="fields">
-                    <div >
-                        <label>Team</label>
-                        <div className="two fields">
+                <div className="field">
+                    <div>
+                        <label>Team:</label>
+                        <div className="two field">
                             <div className="feild">
                                 <select className="ui flui search dropdown" onChange={handleDropdown}>
                                 {soccerTeamSelect}
@@ -91,10 +91,11 @@ function EditProfile({setUser, user}) {
             <p>{updatedMessage}</p>
             <button className="ui button" type="submit">Submit</button>
             </form>
-            
-                <p>
-                <button className="ui button" onClick={handleDelete}>Delete Account</button>
-                </p>
+            <div className="edit-profile-container-div"></div>
+            <label>Delete Account: This can not be unchanged.</label>
+            <p>
+            <button className="ui button" onClick={handleDelete}>Delete Account</button>
+            </p>
             
 
         </div>

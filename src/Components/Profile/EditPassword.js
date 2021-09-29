@@ -40,7 +40,7 @@ function EditPassword({setUser}) {
 
 
     return (
-        <div>
+        <div className="edit-password-container">
             <form className="ui form" onSubmit={handleSubmit}>
             <div className="field">
                 <label>Old Password</label>

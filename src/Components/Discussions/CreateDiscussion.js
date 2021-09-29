@@ -36,19 +36,20 @@ function CreateDiscussion() {
     }
 
     return (
-        <div>
+        <div className="create-discussions-container">
             <form onSubmit={handleSubmit}>
                 <div className="ui form">
                 <div className="field">
-                    <label>Title</label>
+                    <label>Title:</label>
                     <textarea rows="2" name="title" value={title} onChange={(e) => setTitle(e.target.value)}></textarea>
                 </div>
                 <div className="field">
-                    <label>Body</label>
+                    <label>Body:</label>
                     <textarea name="body" value={body} onChange={(e) => setBody(e.target.value)}></textarea>
                 </div>
 
                 </div>
+                <div className="create-discussions-container-div-space"></div>
                 <button className="ui button" >Submit</button>
             </form>
         </div>

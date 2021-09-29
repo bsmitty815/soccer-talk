@@ -5,12 +5,12 @@ function ProfileContainer({user}) {
 
     
     return (
-        <div>
-            <h1>profile container</h1>
-            <p>Username: {user.username}</p>
+        <div className="profile-container">
+            <h1>Profile</h1>
+            <h3>Username: {user.username}</h3>
             <p>{user.profile.bio}</p>
             
-            <h1>My Team: {user.profile.team}</h1>
+            <h3>My Team: {user.profile.team}</h3>
         </div>
     )
 }

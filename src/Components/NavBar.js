@@ -19,8 +19,6 @@ function NavBar({setUser}) {
     
     return (
         <div className="navbar">
-            <h1>navbar</h1>
-
             <p>
             <Link to='/EditProfile'>
                 <button className="ui button" >Edit Profile</button>

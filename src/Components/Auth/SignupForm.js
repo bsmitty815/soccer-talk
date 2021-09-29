@@ -40,7 +40,7 @@ function SignupForm({setUser}) {
 
     
     return (
-        <div>
+        <div className="signup-container">
             <h1>Signup</h1>
             <form className="ui form" onSubmit={handleSubmit}>
             <div className="field">
