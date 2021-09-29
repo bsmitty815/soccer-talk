@@ -30,6 +30,10 @@
 
 /* home page container */
 
+.home-page-navbar {
+  display: flex;
+}
+
 #home-page {
   display: flex;
   flex: 2;
@@ -53,6 +57,7 @@
 /* navbar */
 .navbar {
   text-align: left;
+  padding: 5px;
 }
 
 /* discussions container*/
@@ -64,17 +69,23 @@
 
 /* soccer table */
 
+.team-logo-table {
+  width: 50px;
+  height: 50px;
+}
+
+.soccer-table-div {
+  
+}
+
 table.soccer-table {
   width: 100%;
   background-color: #E6E6E6;
   border-collapse: separate;
-  border-width: 2px;
-  border-color: #F8A4A4;
-  border-style: solid;
   color: #000000;
 }
 
-table.csoccer-table td, table.soccer-table th {
+table.soccer-table th {
   border-width: 2px;
   border-color: #F8A4A4;
   border-style: solid;
@@ -83,4 +94,6 @@ table.csoccer-table td, table.soccer-table th {
 
 table.soccer-table thead {
   background-color: #ABF8F8;
+  border-color: #F8A4A4;
+  border-style: solid;
 }

@@ -28,18 +28,13 @@ function SoccerTable(){
     // console.log(xe, "xe")
     // const tableDisplay = tableData.map(data => data.standings[0]).map(leagueData => leagueData)
     // console.log(tableDisplay, "one")
-    const td = tableData[0].map(dataMap => {
-        return <div>rank: {dataMap.rank} team: {dataMap.team.name} points: {dataMap.points} <img src={dataMap.team.logo} /></div>
-    })
+
     const tableDisplay = tableData[0].map(dataMap => {
-        return <tr key ={dataMap.rank}><td>{dataMap.rank}</td><td><img src={dataMap.team.logo} /></td><td>{dataMap.team.name}</td><td>{dataMap.all.played}</td><td>{dataMap.all.win}</td><td>{dataMap.all.draw}</td><td>{dataMap.all.loss}</td><td>{dataMap.points}</td></tr>
+        return <tr key ={dataMap.rank}><td>{dataMap.rank}</td><td><img src={dataMap.team.logo} className="team-logo-table" alt="team-logos" /></td><td>{dataMap.team.name}</td><td>{dataMap.all.played}</td><td>{dataMap.all.win}</td><td>{dataMap.all.draw}</td><td>{dataMap.all.lose}</td><td>{dataMap.points}</td></tr>
     })
 
-
-
-    console.log(td, "two")
     return (
-        <div>
+        <div className="soccer-table-div">
             
             <table className="soccer-table">
                 <thead>
@@ -58,7 +53,7 @@ function SoccerTable(){
                     {tableDisplay}
                 </tbody>
                 </table>
-                {td}
+                
         </div>
     )
 }

@@ -6,7 +6,7 @@ function HomeNavBar({setSearchTerm, searchTerm}) {
 
 
     return (
-        <div>
+        <div className="home-page-navbar">
 
             <Link to='/Home'>
                 <button className="ui button" >Home</button>

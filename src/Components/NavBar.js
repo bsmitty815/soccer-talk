@@ -19,17 +19,8 @@ function NavBar({setUser}) {
     
     return (
         <div className="navbar">
-            <h1>navbar container</h1>
-            <p>
-            <Link to='/Home'>
-                <button className="ui button" >Home</button>
-            </Link>
-            </p>
-            <p>
-            <Link to='/highlight-videos'>
-                <button className="ui button" >Highlight Videos</button>
-            </Link>
-            </p>
+            <h1>navbar</h1>
+
             <p>
             <Link to='/EditProfile'>
                 <button className="ui button" >Edit Profile</button>
