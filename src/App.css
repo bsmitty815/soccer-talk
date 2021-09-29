@@ -156,3 +156,23 @@ table.soccer-table thead {
   border-color: #F8A4A4;
   border-style: solid;
 }
+
+/* soccer highlights container */
+.soccer-highlights-container {
+  padding-top: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  padding-bottom: 5px;
+}
+
+.highlight-video-container {
+  margin-top: 20px;
+  margin-bottom: 20px;
+
+}
+
+.highlight-video-container-div-space {
+  margin-top: 20px;
+  border-top: 2px solid;
+  border-top-color: #1C6EA4;
+}

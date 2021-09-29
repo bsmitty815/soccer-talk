@@ -21,12 +21,17 @@ function SoccerHighlightVideoApi() {
     const englandCompetitions = videosData.filter(data => data.competition.toLowerCase().includes("england"))
     //map through the results and add them to the screen
     const videoDisplay = englandCompetitions.map((videoData) => {
-        return <div key={videoData.title}><p>{videoData.title}</p><p>Competition: {videoData.competition}</p>{videoData.videos.map((data, index) => <div key={index}>{parse(data.embed)}</div>)}</div>
+        return <div className="highlight-video-container" key={videoData.title}>
+            <p>{videoData.title}</p>
+            <p>Competition: {videoData.competition}</p>
+            {videoData.videos.map((data, index) => <div key={index}>{parse(data.embed)}</div>)}
+            <div className="highlight-video-container-div-space"></div>
+            </div>
     })
 
 
     return (
-        <div>
+        <div className="soccer-highlights-container">
             <h1>Recent Highlights</h1>
            {videoDisplay}
         </div>
