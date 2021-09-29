@@ -41,7 +41,7 @@ function CreateComment({discussion, handleShowCreateComment}) {
             <form onSubmit={handleOnSubmit}>
                 <div className="ui form">
                 <div className="field">
-                    <label>Text</label>
+                    <label>Text:</label>
                     <textarea className="comment-input" value={commentInput} onChange={(e) => setCommentInput(e.target.value)}></textarea>
                 </div>
                 </div>

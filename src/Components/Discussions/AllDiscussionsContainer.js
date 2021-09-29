@@ -1,5 +1,5 @@
 
-import { useEffect, useState, useCallback } from 'react'
+import { useEffect, useCallback } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { Link } from 'react-router-dom'
 import Loading from '../Loading/Loading'
@@ -9,19 +9,15 @@ import { fetchDiscussions, resetAllLoaded } from '../Redux/Actions/discussionAct
 function AllDiscussionsContainer({searchTerm}) {
     const discussions = useSelector(state => state.discussions)
     const dispatch = useDispatch()
-    const [discussionCount, setDiscussionCount] = useState(6)
-
-    //
-    //const pageNumber = useSelector(state => state.discussions.pageNumber)
-    //const pageNumber = useSelector(state => state.discussions[state.discussions.filter+"PageNumber"])
-    //const allLoaded = useSelector(state => state.discussions[state.discussions.allLoaded])
-    //const loading = useSelector(state => state.discussions[state.discussions.loading])
     const pageNumber = useSelector(state => state.pageNumber)
     const allLoaded = useSelector(state => state.allLoaded)
     const loading = useSelector(state => state.loading)
-    console.log(allLoaded)
+    
 
    //useEffect to get more discussions
+
+
+
     useEffect(() => {
        
        if(pageNumber === 0) dispatch(fetchDiscussions(pageNumber))
@@ -50,31 +46,10 @@ function AllDiscussionsContainer({searchTerm}) {
         return () => dispatch(resetAllLoaded())
     }, [dispatch])
     
-    //
-    // useEffect(() => {
-
-    //         dispatch(fetchDiscussions());
-
-    // }, [dispatch]);
 
 
     if (!discussions) return <Loading />
 
-    function handleClick() {
-        setDiscussionCount(discussionCount + 2)
-    }
-    //
-    
-    //  function handleScroll(e){
-    //      console.log(e)
-    //     let element = e.target
-    //     if (element.scrollHeight - element.scrollTop === element.clientHeight) {
-    //       // do something at end of scroll
-    //       console.log("bottom")
-    //     }
-    // } className="content-container" onScroll={handleScroll}
-
-    //
 
     //filter through data depending on what is in the search bar
     const filteredDiscussionsData = discussions.filter((data) => { 

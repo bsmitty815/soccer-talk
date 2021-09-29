@@ -27,10 +27,12 @@ function CommentsContainer({discussion, comments, user}) {
 
     //comments display render
     const commentsDisplay = comments.map((commentData) => {
-        return <div className="ui feed" key={commentData.id}>
+        return <div className="ui feed" key={commentData.id} className="comments-container" >
             <div className="summary">Username: {commentData.user.username} | Created on: {commentData.created_at}</div>
             <div className="extra text">{commentData.body}</div>
+            <div className="comment-container-div-space"></div>
             { user.id === commentData.user.id ? <div><button className="ui button" onClick={() => handleDelete(commentData.id)}>Delete Comment</button></div> : "" }
+            <div className="comment-container-div-space"></div>
             </div>
     })
 
