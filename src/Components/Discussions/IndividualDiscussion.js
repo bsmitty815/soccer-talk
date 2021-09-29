@@ -29,7 +29,8 @@ function IndividualDiscussion({user}) {
     const discussionFound = discussions.filter(discussion => discussion.id === parseInt(id))
     //discussion display function
     const displayDiscussion = discussionFound.map((data) => {
-        return <div key={data.id} className="individual-discussion-container" ><div>
+        return <div key={data.id} className="whole-discussion-container" >
+            <div className="individual-discussion-container">
                 <h1>{data.title}</h1>
                 <p>{data.body}</p>
                 <div className="individual-discussion-container-div-space"></div>
@@ -47,7 +48,6 @@ function IndividualDiscussion({user}) {
 
     return (
         <div>
-            <h1>Individual Discussion</h1>
             {displayDiscussion}
         </div>
     )
