@@ -197,28 +197,31 @@
 }
 
 .soccer-table-div {
-  
+  padding-right: 5px;
+  padding-top: 5px;
 }
 
 table.soccer-table {
   width: 100%;
   background-color: #E6E6E6;
-  border-collapse: separate;
+  border-collapse: collapse;
   color: #000000;
 }
 
 table.soccer-table th {
   border-width: 2px;
-  border-color: #F8A4A4;
+  border-color: #1014ff;
   border-style: solid;
-  padding: 5px;
 }
 
-table.soccer-table thead {
+table.soccer-table td {
   background-color: #ABF8F8;
-  border-color: #F8A4A4;
-  border-style: solid;
+  border: 1px solid #999;
+  padding: 0.5rem;
+  text-align: center;
 }
+
+
 
 /* soccer highlights container */
 .soccer-highlights-container {

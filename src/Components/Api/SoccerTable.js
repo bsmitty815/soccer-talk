@@ -20,7 +20,7 @@ function SoccerTable(){
 
     //creates the display for the teams
     const tableDisplay = tableData[0].map(dataMap => {
-        return <tr key ={dataMap.rank}><td>{dataMap.rank}</td><td><img src={dataMap.team.logo} className="team-logo-table" alt="team-logos" /></td><td>{dataMap.team.name}</td><td>{dataMap.all.played}</td><td>{dataMap.all.win}</td><td>{dataMap.all.draw}</td><td>{dataMap.all.lose}</td><td>{dataMap.points}</td></tr>
+        return <tr key={dataMap.rank}><td>{dataMap.rank}</td><td><img src={dataMap.team.logo} className="team-logo-table" alt="team-logos" /></td><td>{dataMap.team.name}</td><td>{dataMap.all.played}</td><td>{dataMap.all.win}</td><td>{dataMap.all.draw}</td><td>{dataMap.all.lose}</td><td>{dataMap.points}</td></tr>
     })
 
     return (
