@@ -9,14 +9,16 @@ function EditProfile({setUser, user}) {
     const [updatedMessage, setUpdatedMessage] = useState("")
     const history = useHistory()
 
-
+    //the teams to use for the dropdown select
     const soccerTeams = ['Select Team', 'Arsenal', 'Aston Villa', 'Brentford', 'Brighton and Hove Albion', 'Burnley',
     'Chelsea', 'Crystal Palace', 'Everton', 'Leeds United', 'Leicester City', 'Liverpool', 'Manchester City', 'Manchester United',
     'Newcastle United', 'Norwich City', 'Southampton', 'Tottenham Hotspur', 'Watford', 'West Ham United', 'Wolverhampton Wanderers']
 
+    //handle the drop down menu for the team selection
     function handleDropdown(event) {
         setSelectTeam(event.target.value)
     }
+
     // all teams and create option dropdown menu
     const soccerTeamSelect = soccerTeams.map((team) => {
        return <option key={team} value={team} >{team}</option>

@@ -12,6 +12,8 @@ import IndividualDiscussion from './Discussions/IndividualDiscussion'
 import SoccerHighlightVideoApi from './Api/SoccerHighlightVideoApi'
 import HomeNavBar from './HomeNavBar'
 import SoccerTable from './Api/SoccerTable'
+import DiscussionCreated from './Discussions/DiscussionCreated'
+import DiscussionDeleted from './Discussions/DiscussionDeleted'
 
 function HomePageContainer({setUser, user}) {
 
@@ -33,6 +35,12 @@ function HomePageContainer({setUser, user}) {
                 </Route>
                 <Route exact path="/CreateDiscussion">
                     <CreateDiscussion />
+                </Route>
+                <Route exact path="/DiscussionCreated">
+                    <DiscussionCreated />
+                </Route>
+                <Route exact path="/DiscussionDeleted">
+                    <DiscussionDeleted />
                 </Route>
                 <Route exact path="/discussions/:id">
                     <IndividualDiscussion user={user} />

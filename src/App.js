@@ -11,8 +11,8 @@ import HomePageContainer from './Components/HomePageContainer';
 
 function App() {
   const [user, setUser] = useState(null)
-  //console.log(user)
-
+  
+  //get user that is logged in
   useEffect(() => {
     fetch('/me').then((r) => {
       if (r.ok) {

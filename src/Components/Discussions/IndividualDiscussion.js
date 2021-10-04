@@ -1,54 +1,53 @@
 
 import { useParams, useHistory } from 'react-router-dom'
-import { useSelector, useDispatch } from 'react-redux'
-import { removeDiscussion } from '../Redux/Actions/discussionActions';
+import { useDispatch } from 'react-redux'
+import { clearState } from '../Redux/Actions/discussionActions';
 import CommentsContainer from './CommentsContainer'
-
+import { useState, useEffect } from 'react'
+import Loading from '../Loading/Loading'
 
 
 function IndividualDiscussion({user}) {
     const { id } = useParams();
-    const discussions = useSelector(state => state.discussions)
     const dispatch = useDispatch()
     const history = useHistory()
-
+    const [discussionFetched, setDiscussionFetched] = useState([])
+    
+    //use useffect
+    useEffect(() => {
+        fetch(`/discussions/${id}`).then((r) => {
+            if (r.ok) {
+                r.json().then((discussions) => setDiscussionFetched(discussions))
+            }
+        })
+    }, [id])
     //delete discussion container
     function handleDelete(){
         fetch(`discussions/${id}`, {
             method: "DELETE",
         })
-        .then((r) => {
-            console.log(r)
-            dispatch(removeDiscussion(id))
-            history.push('/')
+        .then(() => {
+            dispatch(clearState())
+            history.push('/DiscussionDeleted')
         })  
     }
 
 
-    //find specific discussion with useParams id
-    const discussionFound = discussions.filter(discussion => discussion.id === parseInt(id))
-    //discussion display function
-    const displayDiscussion = discussionFound.map((data) => {
-        return <div key={data.id} className="whole-discussion-container" >
-            <div className="individual-discussion-container">
-                <h1>{data.title}</h1>
-                <p>{data.body}</p>
-                <div className="individual-discussion-container-div-space"></div>
-                {user.id === data.user_id ? <button className="ui button"  onClick={handleDelete}>Delete Discussion</button> : ""}
-                <div className="individual-discussion-container-div-space"></div>
-                </div><CommentsContainer discussion={data} comments={data.comments} user={user}/><div>
-            </div>
-            
-            </div>
-    })
+    if(discussionFetched.length === 0) return <Loading />
 
-    
-
-   
 
     return (
         <div>
-            {displayDiscussion}
+            <div key={discussionFetched.id} className="whole-discussion-container" >
+            <div className="individual-discussion-container">
+                <h1>{discussionFetched.title}</h1>
+                <p>{discussionFetched.body}</p>
+                <div className="individual-discussion-container-div-space"></div>
+                {user.id === discussionFetched.user_id ? <button className="ui button"  onClick={handleDelete}>Delete Discussion</button> : ""}
+                <div className="individual-discussion-container-div-space"></div>
+                </div><CommentsContainer discussion={discussionFetched} comments={discussionFetched.comments} user={user} updateFetchedDiscussion={setDiscussionFetched} /><div>
+            </div>
+            </div>
         </div>
     )
 }

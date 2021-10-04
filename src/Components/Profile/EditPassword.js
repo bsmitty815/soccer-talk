@@ -44,7 +44,7 @@ function EditPassword({setUser}) {
             <form className="ui form" onSubmit={handleSubmit}>
             <div className="field">
                 <label>Old Password</label>
-                <input type="text" name="old-password" placeholder="Old Password" id="edit-old-password" value={oldPassword} onChange={(e) => setOldPassword(e.target.value)} />
+                <input type="password" name="old-password" placeholder="Old Password" id="edit-old-password" autoComplete="on" value={oldPassword} onChange={(e) => setOldPassword(e.target.value)} />
             </div>
             <div className="field">
                 <label>Password</label>

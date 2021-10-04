@@ -113,6 +113,15 @@
 
 }
 
+/* create comments container */
+.create-comments-container {
+  margin-top: 20px;
+}
+
+.create-comment-container-div-space {
+  margin-top: 10px
+}
+
 /* create discussions container */
 .create-discussions-container {
   margin-top: 5px;
@@ -122,6 +131,17 @@
 
 .create-discussions-container-div-space {
   padding-top: 15px;
+}
+
+/* pages after discussion are deleted or created */
+.discussion-deleted {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.discussion-created {
+  margin-top: 20px;
+  text-align: center;
 }
 
 /* login in container */

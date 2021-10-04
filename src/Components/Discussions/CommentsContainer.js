@@ -5,7 +5,7 @@ import { useDispatch } from 'react-redux'
 import { removeComment } from '../Redux/Actions/discussionActions'
 
 
-function CommentsContainer({discussion, comments, user}) {
+function CommentsContainer({discussion, comments, user, updateFetchedDiscussion}) {
 
     const [showCreateComment, setShowCreateComment] = useState(true)
     const dispatch= useDispatch()
@@ -21,29 +21,35 @@ function CommentsContainer({discussion, comments, user}) {
             method: "DELETE",
         })
         .then((r) => {
-            r.json().then((data) => dispatch(removeComment(data)))   
+            r.json().then((data) => {
+                dispatch(removeComment(data))
+                updateFetchedDiscussion(data)
+            })   
         })
     }
 
     //comments display render
     const commentsDisplay = comments.map((commentData) => {
-        return <div className="ui feed" key={commentData.id} className="comments-container" >
+        return <div className="comments-container" key={commentData.id}><div className="ui feed"   >
             <h4 className="summary">Username: {commentData.user.username} | Created on: {commentData.created_at}</h4>
             <div className="extra text">{commentData.body}</div>
             <div className="comment-container-div-space"></div>
             { user.id === commentData.user.id ? <div><button className="ui button" onClick={() => handleDelete(commentData.id)}>Delete Comment</button></div> : "" }
             <div className="comment-container-div-space"></div>
-            </div>
+            </div></div>
     })
 
     return (
         <div>
-            <div>
-                {commentsDisplay}
-            </div>
+
+            <div className="comment-container-div-space"></div>
             <div>
                 {(showCreateComment) ? <button className="ui button"  onClick={handleShowCreateComment}>Create Comment</button> : null }
-                {(showCreateComment) ? null : <CreateComment discussion={discussion.id} handleShowCreateComment={handleShowCreateComment} /> }
+                {(showCreateComment) ? null : <CreateComment discussion={discussion.id} handleShowCreateComment={handleShowCreateComment} updateFetchedDiscussion={updateFetchedDiscussion} /> }
+            </div>
+            <div className="comment-container-div-space"></div>
+            <div>
+                {commentsDisplay}
             </div>
         </div>
     )

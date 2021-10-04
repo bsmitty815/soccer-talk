@@ -2,7 +2,7 @@
 import { useHistory } from 'react-router-dom'
 import { useState } from 'react'
 import { useDispatch } from 'react-redux'
-import { addDiscussion } from '../Redux/Actions/discussionActions'
+import { clearState } from '../Redux/Actions/discussionActions'
 
 function CreateDiscussion() {
 
@@ -12,7 +12,7 @@ function CreateDiscussion() {
     const dispatch = useDispatch()
     const [errors, setErrors] = useState([])
 
-
+    //creates new discussion function
     function handleSubmit(e) {
         e.preventDefault()
         setErrors([])
@@ -28,8 +28,8 @@ function CreateDiscussion() {
             })
         }).then((r) => {
             if (r.ok) {
-                r.json().then((discussion) => dispatch(addDiscussion(discussion)))
-                history.push('/')
+                r.json().then(() => dispatch(clearState()))
+                history.push('/DiscussionCreated')
             } else {
                 r.json().then((err) => setErrors(err.errors))
             }

@@ -1,9 +1,9 @@
 
-
+//fetch discussions
 export const fetchDiscussions = (pageNumber) => {
     return (dispatch) => {
         dispatch(loadingDiscussions())
-        fetch("/discussions" + "?q=" + pageNumber)
+        fetch("/discussions?q=" + pageNumber)
         .then((response) => response.json())
         .then((data) => {
             dispatch(setDiscussions(data))
@@ -33,24 +33,6 @@ export const setDiscussions = (discussions) => {
     
 }
 
-export const addDiscussion = (discussion) => {
-
-    return {
-        type: "ADD_DISCUSSION",
-        payload: discussion
-    }
-    
-}
-
-export const removeDiscussion = (id) => {
-
-    return {
-        type: "REMOVE_DISCUSSION",
-        payload: id
-    }
-    
-}
-
 export const addComment = (discussion) => {
     //sent back the discussion with all the comments
     return {
@@ -65,5 +47,11 @@ export const removeComment = (discussion) => {
     return {
         type: "REMOVE_COMMENT",
         payload: discussion
+    }
+}
+
+export const clearState = () => {
+    return {
+        type: "CLEAR_STATE"
     }
 }

@@ -2,9 +2,10 @@
 import { Link, useHistory } from 'react-router-dom'
 
 function NavBar({setUser}) {
-    //logout/editprofile/editpassword/create discussion
+    
     const history = useHistory()
-    //logout
+    
+    //logout current user
     function handleLogout() {
         
         fetch("/logout", {

@@ -28,20 +28,10 @@ export default function reducer(state = initialState, action) {
                 pageNumber: state.pageNumber + 1,
                 discussions: [...state.discussions, ...action.payload],
                 
-                allLoaded: action.payload.length < 5 ? true : false,
-                loading: false,
-                show: {}
+                allLoaded: action.payload.length < 7 ? true : false,
+                loading: false
             };
 
-
-        case "REMOVE_DISCUSSION":
-            //delete discussion
-            return {...state, discussions: state.discussions.filter(discussion => discussion.id !== action.payload)}
-
-        case "ADD_DISCUSSION":
-            //add discussion
-            return {...state, discussions: [...state.discussions, action.payload]};
-        
         case "ADD_COMMENT":
             //add comment
             //sent back the discussion plus the comments and updated that discussion
@@ -55,7 +45,20 @@ export default function reducer(state = initialState, action) {
             const foundIndex = state.discussions.findIndex(x => x.id === updatedDiscussion)
             return {...state, discussions: [...state.discussions.slice(0, foundIndex), action.payload, ...state.discussions.slice(foundIndex +1)]}
         }
+
+        //clear state after discussion is deleted or created
+        case "CLEAR_STATE":{
+            return{
+                    discussions: [],
+                    allLoaded: false,
+                    loading: false,
+                    pageNumber: 0,
+                    status: "idle"
+            }
+        }
+
         default:
+            
     }
 
     return state;
