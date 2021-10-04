@@ -73,15 +73,12 @@ function AllDiscussionsContainer({searchTerm}) {
     }) 
     
     return (
-        <div>
             <div id="discussions-display">
                 {discussionDisplay}
                 
                 {loading && <Loading />}
                 {allLoaded ? "" : <p>Scroll For More</p>}
             </div>
-
-        </div>
 
     )
 }
