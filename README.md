@@ -16,7 +16,7 @@ Follow these instructions to install your own copy on your computer
 3. Copy the SSH link
 4. Open up your terminal on your computer
 5. Type `git clone` plus SSH copied link and press enter
-6. type `cd social-page` and press enter
+6. type `cd soccer-talk` and press enter
 7. type `npm start` in the terminal to get your the app server up and running
 
 ### `npm start`
@@ -36,7 +36,7 @@ To learn React, check out the [React documentation](https://reactjs.org/).
 
 
 # Resources
-API = https://www.api-football.com/documentation-v3#section/Introduction
-I used the api-football to get data from to import the standings in to my table which you will need a key for if you decide to use it.
+API - https://www.api-football.com/documentation-v3#section/Introduction
+I used the api-football to get data from. I used that api to import the standings in to my table which you will need a key for if you decide to use it.
 
 This application was built using React, HTML, CSS, JavaScript, Redux, and Simantic UI.
