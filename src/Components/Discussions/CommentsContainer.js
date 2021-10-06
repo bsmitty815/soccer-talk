@@ -34,7 +34,7 @@ function CommentsContainer({discussion, comments, user, updateFetchedDiscussion}
             <h4 className="summary">Username: {commentData.user.username} | Created on: {commentData.created_at}</h4>
             <div className="extra text">{commentData.body}</div>
             <div className="comment-container-div-space"></div>
-            { user.id === commentData.user.id ? <div><button className="ui button" onClick={() => handleDelete(commentData.id)}>Delete Comment</button></div> : "" }
+            {!user ? "" : user.id === commentData.user.id ? <div><button className="ui button" onClick={() => handleDelete(commentData.id)}>Delete Comment</button></div> : "" }
             <div className="comment-container-div-space"></div>
             </div></div>
     })
@@ -44,8 +44,18 @@ function CommentsContainer({discussion, comments, user, updateFetchedDiscussion}
 
             <div className="comment-container-div-space"></div>
             <div>
+                {!user ? "" : 
+                (showCreateComment) ? <button className="ui button"  onClick={handleShowCreateComment}>Create Comment</button> : null 
+                }
+                {!user ? "" :
+                (showCreateComment) ? null : <CreateComment discussion={discussion.id} handleShowCreateComment={handleShowCreateComment} updateFetchedDiscussion={updateFetchedDiscussion} /> 
+                }
+        {/* 
                 {(showCreateComment) ? <button className="ui button"  onClick={handleShowCreateComment}>Create Comment</button> : null }
                 {(showCreateComment) ? null : <CreateComment discussion={discussion.id} handleShowCreateComment={handleShowCreateComment} updateFetchedDiscussion={updateFetchedDiscussion} /> }
+         
+         */}
+                
             </div>
             <div className="comment-container-div-space"></div>
             <div>

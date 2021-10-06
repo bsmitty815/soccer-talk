@@ -12,7 +12,7 @@ function AllDiscussionsContainer({searchTerm}) {
     const pageNumber = useSelector(state => state.pageNumber)
     const allLoaded = useSelector(state => state.allLoaded)
     const loading = useSelector(state => state.loading)
-    
+
 
    //useEffect to get more discussions
     useEffect(() => {
@@ -23,13 +23,16 @@ function AllDiscussionsContainer({searchTerm}) {
 
     //checking if the page is fully rendered
     const isBottom = (el) => {
-        return el.getBoundingClientRect().bottom <= window.innerHeight;
+        if (el) {
+            return el.getBoundingClientRect().bottom <= window.innerHeight;
+        }
+        
     }
-
+    
     //track the page scrolling
     const trackScrolling = useCallback(() => {
         const display = document.getElementById("discussions-display")
-        //checking if the element is at the botoom and is not loading
+        //checking if the element is at the bottom and is not loading
         if (isBottom(display) && !loading ) {
             fetchDiscussions(pageNumber)(dispatch)
         }
@@ -71,15 +74,20 @@ function AllDiscussionsContainer({searchTerm}) {
             <p>Created on: {discussion.created_at}</p>
             </div>
     }) 
-    
+
     return (
+            <div>
             <div id="discussions-display">
+                
                 {discussionDisplay}
                 
-                {loading && <Loading />}
-                {allLoaded ? "" : <p>Scroll For More</p>}
+                
+                
             </div>
-
+            <div>
+                {loading && <Loading />}
+            </div>
+            </div>
     )
 }
 

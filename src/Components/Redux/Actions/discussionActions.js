@@ -33,6 +33,7 @@ export const setDiscussions = (discussions) => {
     
 }
 
+
 export const addComment = (discussion) => {
     //sent back the discussion with all the comments
     return {

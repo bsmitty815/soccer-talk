@@ -12,7 +12,7 @@ function IndividualDiscussion({user}) {
     const dispatch = useDispatch()
     const history = useHistory()
     const [discussionFetched, setDiscussionFetched] = useState([])
-    
+
     //use useffect
     useEffect(() => {
         fetch(`/discussions/${id}`).then((r) => {
@@ -43,7 +43,9 @@ function IndividualDiscussion({user}) {
                 <h1>{discussionFetched.title}</h1>
                 <p>{discussionFetched.body}</p>
                 <div className="individual-discussion-container-div-space"></div>
-                {user.id === discussionFetched.user_id ? <button className="ui button"  onClick={handleDelete}>Delete Discussion</button> : ""}
+                
+                {!user ? "" : user.id === discussionFetched.user_id ? <button className="ui button"  onClick={handleDelete}>Delete Discussion</button> : ""}
+                {/*user.id === discussionFetched.user_id ? <button className="ui button"  onClick={handleDelete}>Delete Discussion</button> : ""*/}
                 <div className="individual-discussion-container-div-space"></div>
                 </div><CommentsContainer discussion={discussionFetched} comments={discussionFetched.comments} user={user} updateFetchedDiscussion={setDiscussionFetched} /><div>
             </div>
